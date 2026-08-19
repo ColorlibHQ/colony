@@ -46,6 +46,12 @@ const SEGMENT_LABELS: Record<string, string> = {
   list: 'nav.lists',
   profile: 'nav.profile',
   account: 'nav.account',
+  components: 'nav.components',
+  elements: 'nav.elements',
+  cards: 'nav.cards',
+  feedback: 'nav.feedback',
+  basic: 'nav.basicForm',
+  card: 'nav.cardList',
 };
 
 export function AppHeader() {

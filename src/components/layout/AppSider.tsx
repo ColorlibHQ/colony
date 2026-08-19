@@ -46,14 +46,29 @@ export function AppSider() {
           { key: '/dashboard/workplace', label: t('nav.workplace') },
         ],
       },
-      { key: '/table', icon: <TableOutlined />, label: t('nav.table') },
-      { key: '/form', icon: <FormOutlined />, label: t('nav.forms') },
+      {
+        key: '/components',
+        icon: <AppstoreOutlined />,
+        label: t('nav.components'),
+        children: [
+          { key: '/components/elements', label: t('nav.elements') },
+          { key: '/components/cards', label: t('nav.cards') },
+          { key: '/components/feedback', label: t('nav.feedback') },
+        ],
+      },
+      {
+        key: '/form',
+        icon: <FormOutlined />,
+        label: t('nav.forms'),
+        children: [{ key: '/form/basic', label: t('nav.basicForm') }],
+      },
       {
         key: '/list',
         icon: <UnorderedListOutlined />,
         label: t('nav.lists'),
+        children: [{ key: '/list/card', label: t('nav.cardList') }],
       },
-      { key: '/profile', icon: <AppstoreOutlined />, label: t('nav.profile') },
+      { key: '/table', icon: <TableOutlined />, label: t('nav.table') },
       { key: '/account', icon: <UserOutlined />, label: t('nav.account') },
     ],
     [t],
@@ -66,10 +81,12 @@ export function AppSider() {
       '/dashboard/analysis',
       '/dashboard/monitor',
       '/dashboard/workplace',
+      '/components/elements',
+      '/components/cards',
+      '/components/feedback',
+      '/form/basic',
+      '/list/card',
       '/table',
-      '/form',
-      '/list',
-      '/profile',
       '/account',
     ];
     const match = flat
@@ -131,7 +148,7 @@ export function AppSider() {
       <Menu
         mode="inline"
         selectedKeys={selectedKeys}
-        defaultOpenKeys={collapsed ? [] : ['/dashboard']}
+        defaultOpenKeys={collapsed ? [] : ['/dashboard', '/components']}
         items={items}
         style={{ borderInlineEnd: 0, paddingBlock: 'var(--space-2)' }}
         onClick={({ key }) => void navigate(key)}
