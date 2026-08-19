@@ -33,15 +33,16 @@ export default defineConfig({
     chunkSizeWarningLimit: 900,
     rollupOptions: {
       output: {
-        // Vite 8 dropped the object form of manualChunks — function only.
+        // Only React is pinned to a manual chunk: it is on the critical path
+        // for every route and its hash should stay stable across releases.
+        // antd and Recharts are deliberately NOT grouped — grouping them put
+        // Recharts on the critical path for chart-less routes (measured:
+        // Workplace pulled 1,610 kB with no chart on the page).
         manualChunks(id: string) {
           if (!id.includes('node_modules')) return;
-          if (id.includes('/antd/') || id.includes('/@ant-design/')) return 'antd';
-          if (id.includes('/recharts/') || id.includes('/d3-')) return 'charts';
           if (
             id.includes('/react/') ||
             id.includes('/react-dom/') ||
-            id.includes('/react-router/') ||
             id.includes('/scheduler/')
           ) {
             return 'react';

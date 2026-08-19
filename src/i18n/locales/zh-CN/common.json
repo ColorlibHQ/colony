@@ -72,10 +72,117 @@
     "toggleSidebar": "折叠侧边栏",
     "openCommandPalette": "打开命令面板"
   },
+  "page": {
+    "analysisDesc": "所选周期内的销售额、流量与商品表现。",
+    "monitorDesc": "实时服务健康状况与请求吞吐量。",
+    "workplaceGreeting": "下午好，Aigars",
+    "workplaceDesc": "4 个进行中的项目，其中 1 个本周到期。"
+  },
+  "range": {
+    "7d": "近 7 天",
+    "30d": "近 30 天",
+    "12m": "近 12 月"
+  },
   "stat": {
     "revenue": "总销售额",
     "visits": "访问量",
     "orders": "支付笔数",
-    "conversion": "转化率"
+    "conversion": "转化率",
+    "vsPrevious": "较上一周期"
+  },
+  "chart": {
+    "revenueTrend": "销售额趋势",
+    "trafficByDevice": "设备访问占比",
+    "salesByChannel": "渠道销售额",
+    "topProducts": "热销商品",
+    "requestsPerSecond": "每秒请求数"
+  },
+  "device": {
+    "desktop": "桌面端",
+    "mobile": "移动端",
+    "tablet": "平板"
+  },
+  "channel": {
+    "direct": "直接访问",
+    "organic": "自然搜索",
+    "referral": "外部引荐",
+    "social": "社交媒体",
+    "email": "邮件营销"
+  },
+  "table": {
+    "product": "商品",
+    "category": "类目",
+    "price": "单价",
+    "sold": "销量",
+    "status": "状态"
+  },
+  "category": {
+    "hardware": "硬件",
+    "software": "软件",
+    "services": "服务"
+  },
+  "status": {
+    "active": "在售",
+    "low": "库存不足",
+    "draft": "草稿"
+  },
+  "product": {
+    "aurora": "Aurora 传感器套件",
+    "meridian": "Meridian 数据分析",
+    "lattice": "Lattice 边缘节点",
+    "quanta": "Quanta 支持服务",
+    "vertex": "Vertex 同步",
+    "cobalt": "Cobalt 网关"
+  },
+  "monitor": {
+    "services": "服务状态",
+    "uptime": "可用率",
+    "activity": "最新动态",
+    "cpu": "CPU",
+    "memory": "内存",
+    "disk": "磁盘"
+  },
+  "service": {
+    "api": "API 网关",
+    "web": "Web 前端",
+    "worker": "任务队列",
+    "database": "数据库"
+  },
+  "serviceStatus": {
+    "healthy": "正常",
+    "degraded": "降级",
+    "down": "故障"
+  },
+  "person": {
+    "wei": "张伟",
+    "marta": "柯玛塔",
+    "jonas": "尤纳斯",
+    "li": "陈莉",
+    "ana": "杜安娜"
+  },
+  "activity": {
+    "deployed": "部署了",
+    "merged": "合并了",
+    "flagged": "标记了",
+    "commented": "评论了"
+  },
+  "workplace": {
+    "projects": "进行中的项目",
+    "quickLinks": "快捷入口",
+    "team": "团队成员",
+    "recentActivity": "最新动态",
+    "dueIn": "{{days}} 天后到期"
+  },
+  "quickLink": {
+    "deploy": "发布",
+    "issues": "问题",
+    "docs": "文档",
+    "team": "团队"
+  },
+  "project": {
+    "datatable": "数据表格",
+    "themeStudio": "主题工作室",
+    "docsSite": "文档站点",
+    "rbac": "可视化权限"
   }
 }

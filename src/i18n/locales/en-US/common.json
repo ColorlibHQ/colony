@@ -72,10 +72,117 @@
     "toggleSidebar": "Toggle sidebar",
     "openCommandPalette": "Open command palette"
   },
+  "page": {
+    "analysisDesc": "Revenue, traffic and product performance across the selected period.",
+    "monitorDesc": "Live service health and request throughput.",
+    "workplaceGreeting": "Good afternoon, Aigars",
+    "workplaceDesc": "Four projects in flight, one due this week."
+  },
+  "range": {
+    "7d": "7 days",
+    "30d": "30 days",
+    "12m": "12 months"
+  },
   "stat": {
     "revenue": "Revenue",
     "visits": "Visits",
     "orders": "Orders",
-    "conversion": "Conversion"
+    "conversion": "Conversion",
+    "vsPrevious": "vs. previous period"
+  },
+  "chart": {
+    "revenueTrend": "Revenue trend",
+    "trafficByDevice": "Traffic by device",
+    "salesByChannel": "Sales by channel",
+    "topProducts": "Top products",
+    "requestsPerSecond": "Requests per second"
+  },
+  "device": {
+    "desktop": "Desktop",
+    "mobile": "Mobile",
+    "tablet": "Tablet"
+  },
+  "channel": {
+    "direct": "Direct",
+    "organic": "Organic",
+    "referral": "Referral",
+    "social": "Social",
+    "email": "Email"
+  },
+  "table": {
+    "product": "Product",
+    "category": "Category",
+    "price": "Price",
+    "sold": "Sold",
+    "status": "Status"
+  },
+  "category": {
+    "hardware": "Hardware",
+    "software": "Software",
+    "services": "Services"
+  },
+  "status": {
+    "active": "Active",
+    "low": "Low stock",
+    "draft": "Draft"
+  },
+  "product": {
+    "aurora": "Aurora Sensor Kit",
+    "meridian": "Meridian Analytics",
+    "lattice": "Lattice Edge Node",
+    "quanta": "Quanta Support Plan",
+    "vertex": "Vertex Sync",
+    "cobalt": "Cobalt Gateway"
+  },
+  "monitor": {
+    "services": "Services",
+    "uptime": "Uptime",
+    "activity": "Recent activity",
+    "cpu": "CPU",
+    "memory": "Memory",
+    "disk": "Disk"
+  },
+  "service": {
+    "api": "API gateway",
+    "web": "Web frontend",
+    "worker": "Job worker",
+    "database": "Database"
+  },
+  "serviceStatus": {
+    "healthy": "Healthy",
+    "degraded": "Degraded",
+    "down": "Down"
+  },
+  "person": {
+    "wei": "Wei Zhang",
+    "marta": "Marta Kovac",
+    "jonas": "Jonas Berg",
+    "li": "Li Chen",
+    "ana": "Ana Duarte"
+  },
+  "activity": {
+    "deployed": "deployed",
+    "merged": "merged",
+    "flagged": "flagged",
+    "commented": "commented on"
+  },
+  "workplace": {
+    "projects": "Active projects",
+    "quickLinks": "Quick links",
+    "team": "Team",
+    "recentActivity": "Recent activity",
+    "dueIn": "Due in {{days}}d"
+  },
+  "quickLink": {
+    "deploy": "Deploy",
+    "issues": "Issues",
+    "docs": "Docs",
+    "team": "Team"
+  },
+  "project": {
+    "datatable": "DataTable",
+    "themeStudio": "Theme Studio",
+    "docsSite": "Docs site",
+    "rbac": "Visual RBAC"
   }
 }
