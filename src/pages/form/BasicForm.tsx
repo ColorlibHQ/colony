@@ -199,6 +199,7 @@ export default function BasicFormPage() {
                       render={({ field: f }) => (
                         <Select
                           {...f}
+                          value={f.value || undefined}
                           id="role"
                           style={{ width: '100%' }}
                           placeholder={t('form.rolePlaceholder')}
@@ -227,6 +228,7 @@ export default function BasicFormPage() {
                       render={({ field: f }) => (
                         <Select
                           {...f}
+                          value={f.value?.length ? f.value : undefined}
                           id="team"
                           mode="multiple"
                           style={{ width: '100%' }}
