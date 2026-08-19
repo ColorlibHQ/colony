@@ -1,0 +1,141 @@
+import {
+  AppstoreOutlined,
+  BarChartOutlined,
+  DashboardOutlined,
+  FormOutlined,
+  TableOutlined,
+  UnorderedListOutlined,
+  UserOutlined,
+} from '@ant-design/icons';
+import { Layout, Menu } from 'antd';
+import type { MenuProps } from 'antd';
+import { useMemo } from 'react';
+import { useTranslation } from 'react-i18next';
+import { useLocation, useNavigate } from 'react-router';
+
+import { usePreferences } from '@/stores/preferences';
+
+const { Sider } = Layout;
+
+type MenuItem = Required<MenuProps>['items'][number];
+
+export function AppSider() {
+  const { t } = useTranslation();
+  const navigate = useNavigate();
+  const location = useLocation();
+  const collapsed = usePreferences((s) => s.siderCollapsed);
+
+  /**
+   * Menu labels are i18n keys resolved at render, never captured in a module
+   * constant — a module-level array would freeze the English strings and
+   * silently ignore a locale switch.
+   */
+  const items = useMemo<MenuItem[]>(
+    () => [
+      {
+        key: '/dashboard',
+        icon: <DashboardOutlined />,
+        label: t('nav.dashboard'),
+        children: [
+          {
+            key: '/dashboard/analysis',
+            icon: <BarChartOutlined />,
+            label: t('nav.analysis'),
+          },
+          { key: '/dashboard/monitor', label: t('nav.monitor') },
+          { key: '/dashboard/workplace', label: t('nav.workplace') },
+        ],
+      },
+      { key: '/table', icon: <TableOutlined />, label: t('nav.table') },
+      { key: '/form', icon: <FormOutlined />, label: t('nav.forms') },
+      {
+        key: '/list',
+        icon: <UnorderedListOutlined />,
+        label: t('nav.lists'),
+      },
+      { key: '/profile', icon: <AppstoreOutlined />, label: t('nav.profile') },
+      { key: '/account', icon: <UserOutlined />, label: t('nav.account') },
+    ],
+    [t],
+  );
+
+  /** Longest matching prefix wins, so /dashboard/analysis beats /dashboard. */
+  const selectedKeys = useMemo(() => {
+    const path = location.pathname;
+    const flat = [
+      '/dashboard/analysis',
+      '/dashboard/monitor',
+      '/dashboard/workplace',
+      '/table',
+      '/form',
+      '/list',
+      '/profile',
+      '/account',
+    ];
+    const match = flat
+      .filter((k) => path === k || path.startsWith(`${k}/`))
+      .sort((a, b) => b.length - a.length)[0];
+    return match ? [match] : [];
+  }, [location.pathname]);
+
+  return (
+    <Sider
+      width="var(--layout-sider-w)"
+      collapsedWidth="var(--layout-sider-collapsed-w)"
+      collapsed={collapsed}
+      theme="light"
+      style={{
+        borderInlineEnd: '1px solid var(--c-border)',
+        position: 'sticky',
+        top: 0,
+        height: '100dvh',
+        overflow: 'auto',
+      }}
+    >
+      <div
+        style={{
+          height: 'var(--layout-header-h)',
+          display: 'flex',
+          alignItems: 'center',
+          gap: 'var(--space-2)',
+          padding: '0 var(--space-4)',
+          borderBottom: '1px solid var(--c-border-soft)',
+        }}
+      >
+        <span
+          aria-hidden="true"
+          style={{
+            width: 28,
+            height: 28,
+            flexShrink: 0,
+            borderRadius: 'var(--radius-md)',
+            background: 'var(--ant-color-primary)',
+            color: '#fff',
+            display: 'grid',
+            placeItems: 'center',
+            fontWeight: 700,
+            fontSize: 15,
+          }}
+        >
+          蚁
+        </span>
+        {!collapsed && (
+          <strong
+            style={{ fontSize: 'var(--text-md)', letterSpacing: '-0.01em' }}
+          >
+            {t('app.name')}
+          </strong>
+        )}
+      </div>
+
+      <Menu
+        mode="inline"
+        selectedKeys={selectedKeys}
+        defaultOpenKeys={collapsed ? [] : ['/dashboard']}
+        items={items}
+        style={{ borderInlineEnd: 0, paddingBlock: 'var(--space-2)' }}
+        onClick={({ key }) => void navigate(key)}
+      />
+    </Sider>
+  );
+}

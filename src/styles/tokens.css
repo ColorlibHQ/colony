@@ -1,0 +1,224 @@
+/* ============================================================================
+   Colony — design tokens
+   ----------------------------------------------------------------------------
+   Ant Design v6 ships CSS variables by default, so these sit alongside antd's
+   own `--ant-*` variables rather than fighting them. Anything antd owns
+   (component colors, control heights) is configured through ConfigProvider in
+   src/config/theme; anything the shell owns lives here.
+
+   Structure is deliberate — see the three-state rule:
+     :root                          complete light palette
+     prefers-color-scheme: dark     tokens only, guarded so an explicit
+                                    light choice still wins
+     [data-theme="dark"]            tokens again, so the toggle wins both ways
+   Never declare a color only inside a media/attribute block.
+   ============================================================================ */
+
+:root {
+  /* --- surfaces ---------------------------------------------------------- */
+  --c-bg: #f7f8fa;
+  --c-surface: #ffffff;
+  --c-surface-raised: #ffffff;
+  --c-surface-sunken: #f1f3f6;
+  --c-border: #e3e6ec;
+  --c-border-soft: #eef0f4;
+
+  /* --- text -------------------------------------------------------------- */
+  --c-text: #1c2230;
+  --c-text-secondary: #545c6b;
+  --c-text-tertiary: #8a92a1;
+  --c-text-inverse: #ffffff;
+
+  /* --- semantic (state only, never decoration) --------------------------- */
+  --c-success: #2f7d62;
+  --c-success-bg: #e7f2ee;
+  --c-warning: #a97620;
+  --c-warning-bg: #f8f0de;
+  --c-danger: #c63a28;
+  --c-danger-bg: #fbedea;
+  --c-info: #1677ff;
+  --c-info-bg: #e9f2ff;
+
+  /* --- elevation: contact shadow + wide soft shadow ----------------------- */
+  --shadow-sm: 0 1px 2px rgb(28 34 48 / 6%);
+  --shadow-md:
+    0 1px 2px rgb(28 34 48 / 5%), 0 6px 16px -8px rgb(28 34 48 / 14%);
+  --shadow-lg:
+    0 1px 3px rgb(28 34 48 / 6%), 0 16px 40px -16px rgb(28 34 48 / 20%);
+
+  /* --- radius ------------------------------------------------------------ */
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 10px;
+  --radius-xl: 14px;
+  --radius-full: 999px;
+
+  /* --- spacing: 4px base ------------------------------------------------- */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+
+  /* --- layout ------------------------------------------------------------ */
+  --layout-sider-w: 232px;
+  --layout-sider-collapsed-w: 72px;
+  --layout-header-h: 60px;
+  --layout-content-max: 1600px;
+
+  /* --- motion ------------------------------------------------------------ */
+  --ease-out: cubic-bezier(0.22, 0.61, 0.36, 1);
+  --dur-fast: 120ms;
+  --dur-base: 180ms;
+
+  /* ==========================================================================
+     Typography — the CJK story
+     --------------------------------------------------------------------------
+     Latin and 汉字 do NOT share a metric. Han glyphs are dense, full-width and
+     have no ascender/descender rhythm, so Latin line-heights crush them and
+     Latin letter-spacing pulls them apart. We therefore keep two parallel
+     scales and swap them at the root via [lang]. This is the detail that makes
+     the Chinese build look authored rather than translated.
+     ========================================================================== */
+
+  --font-latin:
+    'Inter var', Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    'Helvetica Neue', Arial, sans-serif;
+  --font-cjk:
+    'Noto Sans SC', 'Source Han Sans SC', 'PingFang SC', 'Hiragino Sans GB',
+    'Microsoft YaHei', sans-serif;
+  --font-mono:
+    'JetBrains Mono', ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas,
+    monospace;
+
+  /* Default (Latin) metrics. Overridden under [lang^='zh'] below. */
+  --font-sans: var(--font-latin), var(--font-cjk);
+  --leading-tight: 1.3;
+  --leading-normal: 1.55;
+  --leading-relaxed: 1.7;
+  --tracking-tight: -0.011em;
+  --tracking-normal: 0;
+  --tracking-wide: 0.04em;
+
+  --text-xs: 12px;
+  --text-sm: 13px;
+  --text-base: 14px;
+  --text-md: 16px;
+  --text-lg: 20px;
+  --text-xl: 24px;
+  --text-2xl: 30px;
+  --text-3xl: 38px;
+
+  --weight-normal: 400;
+  --weight-medium: 500;
+  --weight-semibold: 600;
+  --weight-bold: 700;
+
+  color-scheme: light;
+}
+
+/* CJK metric overrides. Han needs more leading, no negative tracking, and a
+   real weight rather than synthesised fake-bold — so we cap headings at 600
+   where the CJK face has a genuine cut. */
+:root:lang(zh),
+:root:lang(ja),
+:root:lang(ko) {
+  --font-sans: var(--font-cjk), var(--font-latin);
+  --leading-tight: 1.45;
+  --leading-normal: 1.75;
+  --leading-relaxed: 1.9;
+  --tracking-tight: 0;
+  --tracking-normal: 0.01em;
+  --tracking-wide: 0.08em;
+  --weight-bold: 600;
+  /* Han glyphs read smaller at the same px size than Latin. Nudge up. */
+  --text-base: 15px;
+  --text-sm: 14px;
+}
+
+/* --- dark: system preference, unless an explicit light choice is stamped --- */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    --c-bg: #14161b;
+    --c-surface: #1b1e25;
+    --c-surface-raised: #21252d;
+    --c-surface-sunken: #101216;
+    --c-border: #2c313b;
+    --c-border-soft: #23272f;
+
+    --c-text: #e9ecf2;
+    --c-text-secondary: #a8b0be;
+    --c-text-tertiary: #78808e;
+    --c-text-inverse: #14161b;
+
+    --c-success: #62b593;
+    --c-success-bg: #14261f;
+    --c-warning: #cfa45c;
+    --c-warning-bg: #2b2313;
+    --c-danger: #e9705c;
+    --c-danger-bg: #2e1a16;
+    --c-info: #62a5ff;
+    --c-info-bg: #14243c;
+
+    --shadow-sm: 0 1px 2px rgb(0 0 0 / 40%);
+    --shadow-md: 0 1px 2px rgb(0 0 0 / 40%), 0 6px 16px -8px rgb(0 0 0 / 60%);
+    --shadow-lg: 0 1px 3px rgb(0 0 0 / 44%), 0 16px 40px -16px rgb(0 0 0 / 70%);
+
+    color-scheme: dark;
+  }
+}
+
+/* --- dark: explicit choice, wins over a light OS ------------------------- */
+:root[data-theme='dark'] {
+  --c-bg: #14161b;
+  --c-surface: #1b1e25;
+  --c-surface-raised: #21252d;
+  --c-surface-sunken: #101216;
+  --c-border: #2c313b;
+  --c-border-soft: #23272f;
+
+  --c-text: #e9ecf2;
+  --c-text-secondary: #a8b0be;
+  --c-text-tertiary: #78808e;
+  --c-text-inverse: #14161b;
+
+  --c-success: #62b593;
+  --c-success-bg: #14261f;
+  --c-warning: #cfa45c;
+  --c-warning-bg: #2b2313;
+  --c-danger: #e9705c;
+  --c-danger-bg: #2e1a16;
+  --c-info: #62a5ff;
+  --c-info-bg: #14243c;
+
+  --shadow-sm: 0 1px 2px rgb(0 0 0 / 40%);
+  --shadow-md: 0 1px 2px rgb(0 0 0 / 40%), 0 6px 16px -8px rgb(0 0 0 / 60%);
+  --shadow-lg: 0 1px 3px rgb(0 0 0 / 44%), 0 16px 40px -16px rgb(0 0 0 / 70%);
+
+  color-scheme: dark;
+}
+
+/* --- density modes: enterprise users want condensed, screenshots want air -- */
+:root[data-density='compact'] {
+  --space-4: 12px;
+  --space-5: 16px;
+  --space-6: 18px;
+  --space-8: 24px;
+  --layout-header-h: 52px;
+}
+
+:root[data-density='condensed'] {
+  --space-3: 8px;
+  --space-4: 10px;
+  --space-5: 12px;
+  --space-6: 14px;
+  --space-8: 18px;
+  --text-base: 13px;
+  --layout-header-h: 46px;
+  --leading-normal: 1.45;
+}

@@ -1,0 +1,81 @@
+{
+  "app": {
+    "name": "Colony",
+    "tagline": "Ant Design admin, without the lock-in"
+  },
+  "action": {
+    "save": "Save",
+    "cancel": "Cancel",
+    "confirm": "Confirm",
+    "delete": "Delete",
+    "edit": "Edit",
+    "create": "Create",
+    "search": "Search",
+    "reset": "Reset",
+    "export": "Export",
+    "refresh": "Refresh",
+    "close": "Close",
+    "back": "Back",
+    "next": "Next",
+    "submit": "Submit"
+  },
+  "state": {
+    "loading": "Loading",
+    "empty": "Nothing here yet",
+    "error": "Something went wrong",
+    "retry": "Try again",
+    "saved": "Saved",
+    "deleted": "Deleted"
+  },
+  "nav": {
+    "dashboard": "Dashboard",
+    "analysis": "Analysis",
+    "monitor": "Monitor",
+    "workplace": "Workplace",
+    "table": "Table",
+    "forms": "Forms",
+    "lists": "Lists",
+    "profile": "Profile",
+    "account": "Account",
+    "settings": "Settings"
+  },
+  "theme": {
+    "label": "Theme",
+    "mode": {
+      "light": "Light",
+      "dark": "Dark",
+      "system": "System"
+    },
+    "density": {
+      "label": "Density",
+      "comfortable": "Comfortable",
+      "compact": "Compact",
+      "condensed": "Condensed"
+    },
+    "preset": {
+      "label": "Color",
+      "azure": "Azure",
+      "slate": "Slate",
+      "jade": "Jade",
+      "violet": "Violet",
+      "cinnabar": "Cinnabar",
+      "contrast": "High contrast"
+    }
+  },
+  "locale": {
+    "label": "Language",
+    "en-US": "English",
+    "zh-CN": "简体中文"
+  },
+  "a11y": {
+    "skipToContent": "Skip to main content",
+    "toggleSidebar": "Toggle sidebar",
+    "openCommandPalette": "Open command palette"
+  },
+  "stat": {
+    "revenue": "Revenue",
+    "visits": "Visits",
+    "orders": "Orders",
+    "conversion": "Conversion"
+  }
+}
