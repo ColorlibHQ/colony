@@ -4,7 +4,11 @@
 
 **A free React admin dashboard built on Ant Design v6 — without the meta-framework.**
 
-[English](./README.md) · [简体中文](./README.zh-CN.md)
+<p align="center">
+  <a href="https://colony.colorlib.com"><strong>Documentation</strong></a> ·
+  <a href="https://colony-demo.colorlib.com"><strong>Live demo</strong></a> ·
+  <a href="./README.zh-CN.md">简体中文</a>
+</p>
 
 </div>
 

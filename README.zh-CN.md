@@ -4,7 +4,11 @@
 
 **基于 Ant Design v6 的免费 React 中后台模板 —— 不绑定任何上层框架。**
 
-[English](./README.md) · [简体中文](./README.zh-CN.md)
+<p align="center">
+  <a href="https://colony.colorlib.com"><strong>文档</strong></a> ·
+  <a href="https://colony-demo.colorlib.com"><strong>在线演示</strong></a> ·
+  <a href="./README.md">English</a>
+</p>
 
 </div>
 

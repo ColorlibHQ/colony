@@ -38,7 +38,7 @@ export default defineConfig({
         nav: [
           { text: 'Guide', link: '/en/guide/getting-started' },
           { text: 'vs Ant Design Pro', link: '/en/guide/comparison' },
-          { text: 'Demo', link: 'https://demo.colony.colorlib.com' },
+          { text: 'Demo', link: 'https://colony-demo.colorlib.com' },
         ],
         sidebar: {
           '/en/': [
@@ -89,7 +89,7 @@ export default defineConfig({
         nav: [
           { text: '指南', link: '/zh/guide/getting-started' },
           { text: '对比 Ant Design Pro', link: '/zh/guide/comparison' },
-          { text: '在线演示', link: 'https://demo.colony.colorlib.com' },
+          { text: '在线演示', link: 'https://colony-demo.colorlib.com' },
         ],
         sidebar: {
           '/zh/': [

@@ -12,6 +12,9 @@ hero:
       text: 对比 Ant Design Pro
       link: /zh/guide/comparison
     - theme: alt
+      text: 在线演示
+      link: https://colony-demo.colorlib.com
+    - theme: alt
       text: GitHub
       link: https://github.com/ColorlibHQ/colony
 features:

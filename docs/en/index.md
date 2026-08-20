@@ -12,6 +12,9 @@ hero:
       text: vs Ant Design Pro
       link: /en/guide/comparison
     - theme: alt
+      text: Live demo
+      link: https://colony-demo.colorlib.com
+    - theme: alt
       text: GitHub
       link: https://github.com/ColorlibHQ/colony
 features:

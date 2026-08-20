@@ -2,7 +2,11 @@ name: Deploy
 
 # Two Cloudflare Pages projects from one repo:
 #   colony.colorlib.com       docs — the canonical, indexable site
-#   demo.colony.colorlib.com  the app — deliberately not indexed
+#   colony-demo.colorlib.com  the app — deliberately not indexed
+#
+# Both are second-level hosts on purpose. Cloudflare's Universal SSL covers
+# colorlib.com and *.colorlib.com but NOT *.colony.colorlib.com, so a
+# third-level host needs its own certificate and comes up minutes later.
 #
 # Requires two repository secrets:
 #   CLOUDFLARE_API_TOKEN   scoped to "Cloudflare Pages: Edit"
@@ -54,7 +58,7 @@ jobs:
           CLOUDFLARE_ACCOUNT_ID to deploy." 
 
   demo:
-    name: Demo -> demo.colony.colorlib.com
+    name: Demo -> colony-demo.colorlib.com
     runs-on: ubuntu-latest
     permissions: { contents: read, deployments: write }
     steps:
