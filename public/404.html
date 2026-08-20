@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex" />
+    <title>Page not found</title>
+    <style>
+      /* Standalone on purpose: this page is served when the app was never
+         reached, so it cannot depend on the app's CSS or JS. */
+      :root {
+        color-scheme: light dark;
+        --bg: #f7f8fa; --surface: #fff; --text: #1c2230;
+        --muted: #545c6b; --border: #e3e6ec; --accent: #1677ff;
+      }
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --bg: #14161b; --surface: #1b1e25; --text: #e9ecf2;
+          --muted: #a8b0be; --border: #2c313b; --accent: #62a5ff;
+        }
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0; min-height: 100dvh; display: grid; place-items: center;
+        padding: 24px; background: var(--bg); color: var(--text);
+        font-family: 'Noto Sans SC', Inter, -apple-system, BlinkMacSystemFont,
+          'Segoe UI', Roboto, sans-serif;
+        -webkit-font-smoothing: antialiased;
+      }
+      .card {
+        max-width: 480px; width: 100%; text-align: center;
+        background: var(--surface); border: 1px solid var(--border);
+        border-radius: 14px; padding: 48px 32px;
+      }
+      .mark {
+        width: 52px; height: 52px; margin: 0 auto 24px; border-radius: 12px;
+        background: var(--accent); color: #fff; display: grid;
+        place-items: center; font-size: 24px; font-weight: 700;
+      }
+      h1 { margin: 0 0 8px; font-size: 28px; letter-spacing: -0.02em; }
+      p { margin: 0 0 8px; color: var(--muted); line-height: 1.7; }
+      .zh { font-size: 14px; }
+      a {
+        display: inline-block; margin-top: 24px; padding: 10px 20px;
+        background: var(--accent); color: #fff; text-decoration: none;
+        border-radius: 8px; font-weight: 500;
+      }
+      a:focus-visible { outline: 2px solid var(--text); outline-offset: 3px; }
+    </style>
+  </head>
+  <body>
+    <main class="card">
+      <div class="mark" aria-hidden="true">蚁</div>
+      <h1>404</h1>
+      <p>We could not find that page.</p>
+      <p class="zh" lang="zh-CN">抱歉，找不到该页面。</p>
+      <a href="/">Back to the dashboard · 返回仪表盘</a>
+    </main>
+  </body>
+</html>

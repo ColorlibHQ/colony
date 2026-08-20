@@ -33,7 +33,7 @@
     "lint:fix": "eslint . --fix",
     "format": "prettier --write \"src/**/*.{ts,tsx,css,json}\"",
     "format:check": "prettier --check \"src/**/*.{ts,tsx,css,json}\"",
-    "test": "vitest run",
+    "test": "vite build --logLevel error && vitest run",
     "test:watch": "vitest",
     "test:e2e": "playwright test",
     "msw:init": "msw init demo-public --save",

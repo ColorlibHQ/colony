@@ -12,27 +12,39 @@ pnpm build     # -> dist/
 正确的，但用在你的应用上会让它悄悄从搜索引擎消失。
 :::
 
-## SPA 回退
+## SPA 回退，以及如何避免爬虫陷阱
 
-客户端路由要求把未知路径回退到 `index.html`，否则深链接会在 React 运行之前
+客户端路由要求把真实路径回退到 `index.html`，否则深链接会在 React 运行之前
 就被托管服务返回 404。
 
-**Netlify** —— `public/_redirects`：
+常见做法是一条通配规则：
+
 ```
 /*  /index.html  200
 ```
 
-**Vercel** —— `vercel.json`：
-```json
-{ "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }] }
-```
+**请不要这么做。** 它会对*任意* URL 返回 200。爬虫随手构造一个 `/a/b/c` 也能拿到页面，
+并从中发现更多虚构链接，永远不会结束 —— 这是一个无界的抓取空间。
+2026 年，另一个 Colorlib 演示站正是因为这种结构产生了四位数的 Cloudflare 账单。
 
-**Nginx**：
+`pnpm build` 会依据 `src/config/routes.ts` 生成逐条列举路由的 `_redirects`，
+未列出的路径会落到 `404.html` 并返回真实的 404，抓取随之终止。
+`scripts/routes.test.ts` 会在该列表与路由不一致时失败；
+`scripts/crawl-trap.test.ts` 会在通配规则重新出现时失败。
+
+Cloudflare Pages 会为未匹配路径提供顶层 `404.html`，这也是构建产物中包含它的原因。
+
+其他托管平台同样应当逐条列举，而不是使用通配：
+
+**Nginx** —— 精确匹配，并以真实 404 兜底：
 ```nginx
-location / { try_files $uri $uri/ /index.html; }
+location = /            { try_files /index.html =404; }
+location = /dashboard/analysis { try_files /index.html =404; }
+# … 每个路由一条，最后：
+location / { return 404; }
 ```
 
-**Cloudflare Pages** 会自动处理。
+**Vercel** —— 在 `rewrites` 中逐条列出路由，而不是使用 `/(.*)`。
 
 ## 压缩
 

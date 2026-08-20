@@ -13,27 +13,42 @@ closes the entire site to crawlers. Correct for a demo behind an SPA fallback;
 it would silently deindex your app.
 :::
 
-## SPA fallback
+## SPA fallback, without the crawl trap
 
-Client-side routing needs unknown paths served `index.html`, or a deep link
-returns 404 from the host before React ever runs.
+Client-side routing needs real paths served `index.html`, or a deep link returns
+404 from the host before React ever runs.
 
-**Netlify** — `public/_redirects`:
+The usual advice is a catch-all:
+
 ```
 /*  /index.html  200
 ```
 
-**Vercel** — `vercel.json`:
-```json
-{ "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }] }
-```
+**Do not do that.** It answers 200 for *every* URL. A crawler that invents
+`/a/b/c` gets a page, finds more invented links, and never terminates — an
+unbounded crawl space. That exact shape ran up a four-figure Cloudflare bill on
+another Colorlib demo in 2026.
 
-**Nginx**:
+`pnpm build` instead generates a `_redirects` naming each route from
+`src/config/routes.ts`, so anything unlisted falls through to `404.html` with a
+real 404 and crawling stops. `scripts/routes.test.ts` fails if that list and the
+router disagree; `scripts/crawl-trap.test.ts` fails if a catch-all ever
+reappears.
+
+Cloudflare Pages serves a top-level `404.html` for unmatched paths, which is why
+one is emitted.
+
+For other hosts, enumerate rather than wildcard:
+
+**Nginx** — exact locations, with a real 404 fallback:
 ```nginx
-location / { try_files $uri $uri/ /index.html; }
+location = /            { try_files /index.html =404; }
+location = /dashboard/analysis { try_files /index.html =404; }
+# … one per route, then:
+location / { return 404; }
 ```
 
-**Cloudflare Pages** handles it automatically.
+**Vercel** — list the routes in `rewrites` rather than `/(.*)`.
 
 ## Compression
 
