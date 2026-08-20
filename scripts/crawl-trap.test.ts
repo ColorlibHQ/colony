@@ -1,4 +1,4 @@
-import { readFileSync } from 'node:fs';
+import { existsSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { describe, expect, it } from 'vitest';
 
@@ -7,56 +7,47 @@ import { ROUTE_PATHS } from '../src/config/routes';
 /**
  * The crawl trap, pinned.
  *
- * A blanket `/*  /index.html  200` answers 200 for any URL. A crawler that
+ * A blanket `/*  /index.html  200` answers 200 for any URL: a crawler that
  * invents /a/b/c gets a page, finds more invented links, and never terminates.
  * That shape ran up a four-figure Cloudflare bill on another Colorlib demo in
  * 2026, so it is asserted rather than remembered.
+ *
+ * The build emits a real index.html per route instead, so unknown paths have no
+ * file and fall through to a genuine 404.
  */
-const redirects = () =>
-  readFileSync(join(process.cwd(), 'dist/_redirects'), 'utf8');
+const dist = (p: string) => join(process.cwd(), 'dist', p);
 
-/** Mirrors how Cloudflare Pages matches a `_redirects` line. */
-function wouldRewrite(file: string, path: string): boolean {
-  return file
-    .split('\n')
-    .filter((l) => l.trim() && !l.startsWith('#'))
-    .some((line) => {
-      const [from] = line.trim().split(/\s+/);
-      if (!from) return false;
-      if (from.endsWith('/*')) return path.startsWith(from.slice(0, -1));
-      return from === path;
-    });
-}
-
-describe('_redirects', () => {
-  const file = redirects();
-
-  it('contains no catch-all rule', () => {
-    // The single most important assertion in this file.
-    expect(file).not.toMatch(/^\/\*/m);
-  });
-
-  it('rewrites every real route', () => {
-    for (const p of ROUTE_PATHS) {
-      expect(wouldRewrite(file, p), `${p} should be served`).toBe(true);
+describe('route shells', () => {
+  it('emits a real html file for every route', () => {
+    for (const route of ROUTE_PATHS) {
+      const file = route === '/' ? 'index.html' : `${route.slice(1)}.html`;
+      expect(existsSync(dist(file)), `missing shell for ${route}`).toBe(true);
     }
   });
 
-  it.each([
-    '/invented',
-    '/a/b/c/d/e',
-    '/dashboard/analysis/../../etc',
-    '/wp-admin',
-    '/table/1/2/3/4/5',
-    '/.env',
-  ])('lets %s fall through to a real 404', (path) => {
-    expect(wouldRewrite(file, path)).toBe(false);
+  it('emits no file for paths that do not exist', () => {
+    for (const p of ['a/b/c/d/e', 'wp-admin', 'nope', 'table/1/2/3']) {
+      expect(existsSync(dist(`${p}.html`)), `${p} should not exist`).toBe(false);
+      expect(existsSync(dist(join(p, 'index.html')))).toBe(false);
+    }
   });
 
-  it('ships a 404 page for those to land on', () => {
-    const html = readFileSync(join(process.cwd(), 'dist/404.html'), 'utf8');
+  it('ships no catch-all rewrite', () => {
+    // The single most important assertion here. A _redirects file is allowed to
+    // exist, but never with a wildcard that resurrects the trap.
+    if (!existsSync(dist('_redirects'))) return;
+    expect(readFileSync(dist('_redirects'), 'utf8')).not.toMatch(/^\/\*/m);
+  });
+
+  it('ships a 404 page for unknown paths to land on', () => {
+    const html = readFileSync(dist('404.html'), 'utf8');
     expect(html).toContain('404');
-    // Belt and braces: even if something links to it, it stays out of the index.
     expect(html).toMatch(/name="robots"\s+content="noindex"/);
+  });
+
+  it('every shell references the built bundle, not a dev entry', () => {
+    const shell = readFileSync(dist('table.html'), 'utf8');
+    expect(shell).toMatch(/assets\/[\w-]+\.js/);
+    expect(shell).not.toContain('/src/main.tsx');
   });
 });

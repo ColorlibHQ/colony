@@ -27,24 +27,23 @@ pnpm build     # -> dist/
 并从中发现更多虚构链接，永远不会结束 —— 这是一个无界的抓取空间。
 2026 年，另一个 Colorlib 演示站正是因为这种结构产生了四位数的 Cloudflare 账单。
 
-`pnpm build` 会依据 `src/config/routes.ts` 生成逐条列举路由的 `_redirects`，
-未列出的路径会落到 `404.html` 并返回真实的 404，抓取随之终止。
-`scripts/routes.test.ts` 会在该列表与路由不一致时失败；
-`scripts/crawl-trap.test.ts` 会在通配规则重新出现时失败。
+`pnpm build` 会依据 `src/config/routes.ts`，为每个路由写出一个真实的 HTML 文件 ——
+`dist/table.html`、`dist/dashboard/analysis.html` 等等。每个真实路由都是实际存在的静态
+内容，因此直接返回 200；其余路径没有对应文件，会落到 `404.html` 并返回真实的 404，
+抓取随之终止。
 
-Cloudflare Pages 会为未匹配路径提供顶层 `404.html`，这也是构建产物中包含它的原因。
+这种做法不依赖任何平台特定配置，因此在 Cloudflare Pages、Netlify、S3 与 nginx 上表现
+一致，也不存在需要与重定向文件保持同步的内容。
 
-其他托管平台同样应当逐条列举，而不是使用通配：
+采用 `<route>.html` 而非 `<route>/index.html` 是有意为之：静态托管会直接返回前者，
+而后者会让每个深链接先 308 跳转到带斜杠的形式。两者都能用，但只有一种会多一次往返。
 
-**Nginx** —— 精确匹配，并以真实 404 兜底：
-```nginx
-location = /            { try_files /index.html =404; }
-location = /dashboard/analysis { try_files /index.html =404; }
-# … 每个路由一条，最后：
-location / { return 404; }
-```
+此前曾尝试用逐条列举的 `_redirects`，但并不可行：Cloudflare Pages 会把 `/index.html`
+规范化为 `/`，因此指向它的 rewrite 会继承该跳转，深链接最终 308 到首页，
+访问者想要的页面就此丢失。
 
-**Vercel** —— 在 `rewrites` 中逐条列出路由，而不是使用 `/(.*)`。
+`scripts/routes.test.ts` 会在路由列表与路由配置不一致时失败；
+`scripts/crawl-trap.test.ts` 会在 shell 缺失或通配规则重新出现时失败。
 
 ## 压缩
 

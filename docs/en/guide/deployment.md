@@ -29,26 +29,27 @@ The usual advice is a catch-all:
 unbounded crawl space. That exact shape ran up a four-figure Cloudflare bill on
 another Colorlib demo in 2026.
 
-`pnpm build` instead generates a `_redirects` naming each route from
-`src/config/routes.ts`, so anything unlisted falls through to `404.html` with a
-real 404 and crawling stops. `scripts/routes.test.ts` fails if that list and the
-router disagree; `scripts/crawl-trap.test.ts` fails if a catch-all ever
+`pnpm build` instead writes the SPA shell to a real file per route —
+`dist/table.html`, `dist/dashboard/analysis.html`, and so on — from the list in
+`src/config/routes.ts`. Every real route is genuine static content, so it is a
+plain 200; anything else has no file and falls through to `404.html` with a real
+404, which is where crawling stops.
+
+This needs no host-specific configuration, so it behaves the same on Cloudflare
+Pages, Netlify, S3 or nginx. Nothing to keep in sync with a redirects file.
+
+`<route>.html` rather than `<route>/index.html` is deliberate: static hosts serve
+the former directly, while the latter earns a 308 to the trailing-slash form on
+every deep link. Both work; only one costs a round trip.
+
+An earlier attempt used `_redirects` listing each route, and it did not work:
+Cloudflare Pages canonicalises `/index.html` to `/`, so a rewrite pointing there
+inherits the redirect and a deep link 308s to the root, losing the page the
+visitor asked for.
+
+`scripts/routes.test.ts` fails if the route list and the router disagree;
+`scripts/crawl-trap.test.ts` fails if a shell goes missing or a catch-all
 reappears.
-
-Cloudflare Pages serves a top-level `404.html` for unmatched paths, which is why
-one is emitted.
-
-For other hosts, enumerate rather than wildcard:
-
-**Nginx** — exact locations, with a real 404 fallback:
-```nginx
-location = /            { try_files /index.html =404; }
-location = /dashboard/analysis { try_files /index.html =404; }
-# … one per route, then:
-location / { return 404; }
-```
-
-**Vercel** — list the routes in `rewrites` rather than `/(.*)`.
 
 ## Compression
 
