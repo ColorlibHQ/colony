@@ -21,6 +21,7 @@ const AdvancedFormPage = lazy(() => import('@/pages/form/AdvancedForm'));
 const BasicListPage = lazy(() => import('@/pages/list/BasicList'));
 const ProfileAdvancedPage = lazy(() => import('@/pages/profile/Advanced'));
 const AssistantPage = lazy(() => import('@/pages/ai/Assistant'));
+const ThemeStudioPage = lazy(() => import('@/pages/theme/ThemeStudio'));
 const RegisterResultPage = lazy(() => import('@/pages/auth/RegisterResult'));
 const OrdersPage = lazy(() => import('@/pages/table/Orders'));
 const LoginPage = lazy(() => import('@/pages/auth/Login'));
@@ -62,6 +63,7 @@ export const router = createBrowserRouter([
       { path: 'account/center', Component: AccountCenterPage },
       { path: 'account/settings', Component: AccountSettingsPage },
       { path: 'ai/assistant', Component: AssistantPage },
+      { path: 'theme-studio', Component: ThemeStudioPage },
       { path: 'table', Component: OrdersPage },
       { path: '403', Component: ForbiddenPage },
       { path: '500', Component: ServerErrorPage },

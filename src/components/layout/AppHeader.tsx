@@ -52,6 +52,14 @@ const SEGMENT_LABELS: Record<string, string> = {
   feedback: 'nav.feedback',
   basic: 'nav.basicForm',
   card: 'nav.cardList',
+  step: 'nav.stepForm',
+  advanced: 'nav.advancedForm',
+  search: 'nav.searchList',
+  center: 'nav.accountCenter',
+  settings: 'nav.settings',
+  ai: 'nav.assistant',
+  assistant: 'nav.assistant',
+  'theme-studio': 'nav.themeStudio',
 };
 
 export function AppHeader() {

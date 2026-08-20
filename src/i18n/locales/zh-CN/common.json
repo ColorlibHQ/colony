@@ -53,7 +53,8 @@
     "basicList": "标准列表",
     "profileAdvanced": "客户详情",
     "accountCenter": "个人中心",
-    "assistant": "AI 助手"
+    "assistant": "AI 助手",
+    "themeStudio": "主题工作室"
   },
   "theme": {
     "label": "主题",
@@ -107,7 +108,8 @@
     "basicListDesc": "带数量统计与行内操作的可筛选列表。",
     "profileAdvancedDesc": "客户账号及其订单、动态与联系人。",
     "accountCenterDesc": "你的资料、已发布内容与最近动态。",
-    "assistantDesc": "支持流式输出的对话界面，接口可替换。"
+    "assistantDesc": "支持流式输出的对话界面，接口可替换。",
+    "themeStudioDesc": "实时调整 Ant Design Design Token，并导出主题文件。"
   },
   "range": {
     "7d": "近 7 天",
@@ -616,6 +618,25 @@
       "summarise": "总结上周的订单情况",
       "draft": "起草一份发版说明",
       "explain": "解释这个报错"
+    }
+  },
+  "studio": {
+    "tokens": "Design Token",
+    "primary": "主色",
+    "radius": "圆角",
+    "preview": "实时预览",
+    "output": "theme.ts",
+    "copy": "复制",
+    "export": "下载",
+    "copied": "主题配置已复制到剪贴板",
+    "contrast": "对比度 {{ratio}}:1",
+    "contrastHint": "低于 3:1 时，许多读者难以分辨该颜色。请调深，或仅将其用于装饰。",
+    "previewNote": "以下均为应用真实主题的组件 —— 侧边栏与顶栏会同步变化。",
+    "wcag": {
+      "aaa": "符合 WCAG AAA",
+      "aa": "符合 WCAG AA",
+      "aaLarge": "仅符合大号文字 AA",
+      "fail": "未达到 WCAG AA"
     }
   }
 }

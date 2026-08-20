@@ -29,9 +29,16 @@ export function buildTheme(options: {
   isDark: boolean;
   density: Density;
   isCjk: boolean;
+  /** Theme Studio overrides; null falls back to the preset. */
+  customPrimary?: string | null;
+  customRadius?: number | null;
 }): ThemeConfig {
   const { presetId, isDark, density, isCjk } = options;
   const preset = getPreset(presetId);
+  const primary =
+    options.customPrimary ??
+    (isDark ? preset.colorPrimaryDark : preset.colorPrimary);
+  const borderRadius = options.customRadius ?? preset.borderRadius;
 
   const algorithms = [
     isDark ? antdTheme.darkAlgorithm : antdTheme.defaultAlgorithm,
@@ -43,8 +50,8 @@ export function buildTheme(options: {
   return {
     algorithm: algorithms,
     token: {
-      colorPrimary: isDark ? preset.colorPrimaryDark : preset.colorPrimary,
-      borderRadius: preset.borderRadius,
+      colorPrimary: primary,
+      borderRadius,
 
       fontFamily: isCjk
         ? `${FONT_CJK}, ${FONT_LATIN}`
@@ -74,12 +81,15 @@ export function buildTheme(options: {
         headerPadding: '0 16px',
       },
       Menu: {
-        itemBorderRadius: preset.borderRadius,
+        itemBorderRadius: borderRadius,
         itemMarginInline: 8,
         activeBarWidth: 0,
       },
       Card: {
-        borderRadiusLG: Math.max(preset.borderRadius + 4, 8),
+        borderRadiusLG: Math.max(borderRadius + 4, 8),
+      },
+      Progress: {
+        defaultColor: primary,
       },
       Table: {
         headerBg: 'var(--c-surface-sunken)',

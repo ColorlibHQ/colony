@@ -31,9 +31,11 @@ describe('locale parity', () => {
      * unless it is a brand name or a placeholder token.
      */
     const brands =
-      /^(Ant Design|React|GitHub|Google|Vite|TypeScript|MSW|English|简体中文)$/;
+      /^(Ant Design|Design Token|React|GitHub|Google|Vite|TypeScript|MSW|English|简体中文)$/;
     /** Technical acronyms are written in Latin in Chinese copy too (CPU, API). */
     const acronym = /^[A-Z][A-Z0-9]{1,5}$/;
+    /** Filenames and identifiers are code, not copy. */
+    const identifier = /^[\w.-]+\.(ts|tsx|js|json|css|md|zip|csv)$/;
     const walk = (obj: Json, path = ''): void => {
       for (const [k, v] of Object.entries(obj)) {
         if (typeof v === 'object') {
@@ -41,7 +43,12 @@ describe('locale parity', () => {
           continue;
         }
         const stripped = v.replaceAll(/\{\{\w+\}\}/g, '').trim();
-        if (!stripped || brands.test(stripped) || acronym.test(stripped))
+        if (
+          !stripped ||
+          brands.test(stripped) ||
+          acronym.test(stripped) ||
+          identifier.test(stripped)
+        )
           continue;
         if (/[A-Za-z]/.test(stripped) && !/[\u4e00-\u9fff]/.test(stripped)) {
           expect

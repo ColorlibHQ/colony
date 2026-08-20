@@ -1,5 +1,6 @@
 import {
   AppstoreOutlined,
+  BgColorsOutlined,
   BarChartOutlined,
   DashboardOutlined,
   FormOutlined,
@@ -105,6 +106,11 @@ export function AppSider() {
         label: t('nav.assistant'),
       },
       {
+        key: '/theme-studio',
+        icon: <BgColorsOutlined />,
+        label: t('nav.themeStudio'),
+      },
+      {
         key: '/exception',
         icon: <WarningOutlined />,
         label: t('nav.exceptions'),
@@ -149,6 +155,7 @@ export function AppSider() {
       '/account/center',
       '/account/settings',
       '/ai/assistant',
+      '/theme-studio',
       '/table',
       '/403',
       '/500',

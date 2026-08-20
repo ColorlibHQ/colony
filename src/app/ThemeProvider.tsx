@@ -49,6 +49,8 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
   const colorMode = usePreferences((s) => s.colorMode);
   const presetId = usePreferences((s) => s.presetId);
   const density = usePreferences((s) => s.density);
+  const customPrimary = usePreferences((s) => s.customPrimary);
+  const customRadius = usePreferences((s) => s.customRadius);
 
   const systemDark = useSyncExternalStore(
     subscribeToSystemDark,
@@ -80,8 +82,16 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
   }, [density]);
 
   const themeConfig = useMemo(
-    () => buildTheme({ presetId, isDark, density, isCjk }),
-    [presetId, isDark, density, isCjk],
+    () =>
+      buildTheme({
+        presetId,
+        isDark,
+        density,
+        isCjk,
+        customPrimary,
+        customRadius,
+      }),
+    [presetId, isDark, density, isCjk, customPrimary, customRadius],
   );
 
   const antdLocale =

@@ -10,7 +10,7 @@ export const APP_ROUTES = [
   'form/basic', 'form/step', 'form/advanced',
   'list/basic', 'list/card', 'list/search',
   'profile/basic', 'profile/advanced', 'table',
-  'account/center', 'account/settings', 'ai/assistant',
+  'account/center', 'account/settings', 'ai/assistant', 'theme-studio',
   '403', '500', 'this-route-does-not-exist',
 ] as const;
 

@@ -53,7 +53,8 @@
     "basicList": "Basic list",
     "profileAdvanced": "Account detail",
     "accountCenter": "Account centre",
-    "assistant": "AI assistant"
+    "assistant": "AI assistant",
+    "themeStudio": "Theme Studio"
   },
   "theme": {
     "label": "Theme",
@@ -107,7 +108,8 @@
     "basicListDesc": "A filterable list with counts and per-row actions.",
     "profileAdvancedDesc": "A customer account with orders, activity and contacts.",
     "accountCenterDesc": "Your profile, published work and recent activity.",
-    "assistantDesc": "A streaming chat surface with a pluggable provider."
+    "assistantDesc": "A streaming chat surface with a pluggable provider.",
+    "themeStudioDesc": "Edit Ant Design tokens live and export a theme file."
   },
   "range": {
     "7d": "7 days",
@@ -616,6 +618,25 @@
       "summarise": "Summarise last week's orders",
       "draft": "Draft a release note",
       "explain": "Explain this error"
+    }
+  },
+  "studio": {
+    "tokens": "Tokens",
+    "primary": "Primary colour",
+    "radius": "Corner radius",
+    "preview": "Live preview",
+    "output": "theme.ts",
+    "copy": "Copy",
+    "export": "Download",
+    "copied": "Theme copied to clipboard",
+    "contrast": "Contrast {{ratio}}:1",
+    "contrastHint": "Below 3:1 this colour is hard to distinguish for many readers. Darken it, or reserve it for decoration only.",
+    "previewNote": "These are real components on the live theme — the sidebar and header update with them.",
+    "wcag": {
+      "aaa": "WCAG AAA",
+      "aa": "WCAG AA",
+      "aaLarge": "AA large text only",
+      "fail": "Below WCAG AA"
     }
   }
 }
