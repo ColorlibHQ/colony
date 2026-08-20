@@ -41,7 +41,7 @@ has had no stable release in 13 months. Ant Design Pro works around this by pinn
 | Language | TypeScript 6, `strict` |
 | Router | React Router 8 |
 | Server state | TanStack Query 5 |
-| Tables | TanStack Table 9 |
+| Tables | antd Table + a toolbar layer |
 | Forms | React Hook Form + Zod 4 |
 | Client state | Zustand 5 |
 | Charts | Recharts 3 |
@@ -72,7 +72,7 @@ off `:root:lang(zh)`. Every screen is reviewed in four states: light/dark × EN/
 ## Roadmap
 
 - [x] **Phase 0** — foundation: tokens, theming, i18n, shell, CI
-- [ ] **Phase 1** — parity with all 24 Ant Design Pro routes
+- [ ] **Phase 1** — parity with all 24 Ant Design Pro routes *(in progress: 13 of 24)*
 - [ ] **Phase 2** — Theme Studio, command palette, visual RBAC, 8 pages Pro lacks
 - [ ] **Phase 3** — bilingual docs site, Gitee mirror
 - [ ] **Phase 4** — 1.0

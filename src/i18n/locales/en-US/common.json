@@ -43,7 +43,9 @@
     "cards": "Cards",
     "feedback": "Feedback",
     "basicForm": "Basic form",
-    "cardList": "Card list"
+    "cardList": "Card list",
+    "exceptions": "Exceptions",
+    "auth": "Authentication"
   },
   "theme": {
     "label": "Theme",
@@ -87,7 +89,8 @@
     "cardsDesc": "Card compositions for dashboards, listings, profiles and pricing.",
     "feedbackDesc": "Alerts, overlays, loading and empty states.",
     "basicFormDesc": "Schema-first validation with React Hook Form and Zod.",
-    "cardListDesc": "A filterable, sortable collection with grid and list views."
+    "cardListDesc": "A filterable, sortable collection with grid and list views.",
+    "ordersDesc": "240 orders, paged and filtered on the server."
   },
   "range": {
     "7d": "7 days",
@@ -125,7 +128,23 @@
     "category": "Category",
     "price": "Price",
     "sold": "Sold",
-    "status": "Status"
+    "status": "Status",
+    "searchPlaceholder": "Search reference or customer",
+    "reference": "Reference",
+    "customer": "Customer",
+    "channel": "Channel",
+    "items": "Items",
+    "amount": "Amount",
+    "created": "Created",
+    "actions": "Actions",
+    "columns": "Columns",
+    "resetColumns": "Reset columns",
+    "fullscreen": "Fullscreen",
+    "selectedCount": "{{count}} selected",
+    "clearSelection": "Clear",
+    "paginationTotal": "{{from}}–{{to}} of {{total}}",
+    "bulkExported": "Exported {{count}} orders",
+    "bulkDeleted": "Deleted {{count}} orders"
   },
   "category": {
     "hardware": "Hardware",
@@ -344,7 +363,8 @@
     "public": "Public",
     "budget": "Budget",
     "notify": "Email me on changes",
-    "dropFiles": "Drop a file here or click to browse"
+    "dropFiles": "Drop a file here or click to browse",
+    "password": "Password"
   },
   "role": {
     "owner": "Owner",
@@ -366,7 +386,9 @@
     "seatsMin": "At least 1 seat",
     "seatsMax": "Maximum 500 seats",
     "notesMax": "Keep notes under 280 characters",
-    "fixErrors": "Fix the highlighted fields and try again"
+    "fixErrors": "Fix the highlighted fields and try again",
+    "passwordMin": "Use at least 8 characters",
+    "mustAccept": "You must accept the terms to continue"
   },
   "list": {
     "searchPlaceholder": "Search projects",
@@ -382,5 +404,46 @@
     "early": "Early stage",
     "onTrack": "On track",
     "nearlyDone": "Nearly done"
+  },
+  "orderStatus": {
+    "paid": "Paid",
+    "pending": "Pending",
+    "refunded": "Refunded",
+    "failed": "Failed"
+  },
+  "exception": {
+    "403": "You do not have permission to view this page.",
+    "404": "We could not find that page.",
+    "500": "Something broke on our side. The team has been notified.",
+    "goHome": "Go to dashboard"
+  },
+  "auth": {
+    "signIn": "Sign in",
+    "signUp": "Sign up",
+    "signInSub": "Welcome back. Enter your details to continue.",
+    "createAccount": "Create account",
+    "createAccountSub": "Start with the free tier — no card required.",
+    "remember": "Remember me",
+    "forgot": "Forgot password?",
+    "orContinue": "or continue with",
+    "noAccount": "New here?",
+    "haveAccount": "Already have an account?",
+    "badCredentials": "That email and password do not match.",
+    "demoHint": "This is a demo — use password colony-demo to sign in.",
+    "welcomeBack": "Signed in",
+    "accountCreated": "Account created",
+    "acceptTerms": "I agree to the terms and privacy policy",
+    "heroTitle": "Ant Design admin, without the lock-in",
+    "heroBody": "Everything Ant Design Pro gives you, on plain Vite and React Router. No meta-framework, no prerelease dependencies.",
+    "point": {
+      "noLockIn": "No UmiJS, no prerelease dependencies",
+      "bilingual": "English and Chinese, both first-class",
+      "themed": "Six themes, three densities, full dark mode"
+    },
+    "strength": {
+      "weak": "Weak password",
+      "fair": "Fair password",
+      "strong": "Strong password"
+    }
   }
 }

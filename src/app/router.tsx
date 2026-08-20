@@ -2,6 +2,7 @@ import { lazy } from 'react';
 import { createBrowserRouter, Navigate } from 'react-router';
 
 import { AppLayout } from '@/layouts/AppLayout';
+import { AuthLayout } from '@/layouts/AuthLayout';
 
 const AnalysisPage = lazy(() => import('@/pages/dashboard/Analysis'));
 const MonitorPage = lazy(() => import('@/pages/dashboard/Monitor'));
@@ -11,9 +12,23 @@ const CardsPage = lazy(() => import('@/pages/components/Cards'));
 const FeedbackPage = lazy(() => import('@/pages/components/Feedback'));
 const BasicFormPage = lazy(() => import('@/pages/form/BasicForm'));
 const CardListPage = lazy(() => import('@/pages/list/CardList'));
+const OrdersPage = lazy(() => import('@/pages/table/Orders'));
+const LoginPage = lazy(() => import('@/pages/auth/Login'));
+const RegisterPage = lazy(() => import('@/pages/auth/Register'));
+const ForbiddenPage = lazy(() => import('@/pages/exception/Forbidden'));
+const ServerErrorPage = lazy(() => import('@/pages/exception/ServerError'));
 const NotFoundPage = lazy(() => import('@/pages/exception/NotFound'));
 
 export const router = createBrowserRouter([
+  {
+    path: '/auth',
+    Component: AuthLayout,
+    children: [
+      { index: true, element: <Navigate to="/auth/login" replace /> },
+      { path: 'login', Component: LoginPage },
+      { path: 'register', Component: RegisterPage },
+    ],
+  },
   {
     path: '/',
     Component: AppLayout,
@@ -27,6 +42,9 @@ export const router = createBrowserRouter([
       { path: 'components/feedback', Component: FeedbackPage },
       { path: 'form/basic', Component: BasicFormPage },
       { path: 'list/card', Component: CardListPage },
+      { path: 'table', Component: OrdersPage },
+      { path: '403', Component: ForbiddenPage },
+      { path: '500', Component: ServerErrorPage },
       { path: '*', Component: NotFoundPage },
     ],
   },

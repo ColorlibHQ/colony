@@ -4,6 +4,7 @@ import {
   DashboardOutlined,
   FormOutlined,
   TableOutlined,
+  WarningOutlined,
   UnorderedListOutlined,
   UserOutlined,
 } from '@ant-design/icons';
@@ -69,7 +70,25 @@ export function AppSider() {
         children: [{ key: '/list/card', label: t('nav.cardList') }],
       },
       { key: '/table', icon: <TableOutlined />, label: t('nav.table') },
-      { key: '/account', icon: <UserOutlined />, label: t('nav.account') },
+      {
+        key: '/exception',
+        icon: <WarningOutlined />,
+        label: t('nav.exceptions'),
+        children: [
+          { key: '/403', label: '403' },
+          { key: '/500', label: '500' },
+          { key: '/not-found', label: '404' },
+        ],
+      },
+      {
+        key: '/auth',
+        icon: <UserOutlined />,
+        label: t('nav.auth'),
+        children: [
+          { key: '/auth/login', label: t('auth.signIn') },
+          { key: '/auth/register', label: t('auth.signUp') },
+        ],
+      },
     ],
     [t],
   );
@@ -87,7 +106,10 @@ export function AppSider() {
       '/form/basic',
       '/list/card',
       '/table',
-      '/account',
+      '/403',
+      '/500',
+      '/auth/login',
+      '/auth/register',
     ];
     const match = flat
       .filter((k) => path === k || path.startsWith(`${k}/`))

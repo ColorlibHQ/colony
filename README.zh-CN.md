@@ -41,7 +41,7 @@ Ant Design Pro 是官方中后台方案，本身质量很好。但使用它就�
 | 语言 | TypeScript 6，`strict` |
 | 路由 | React Router 8 |
 | 服务端状态 | TanStack Query 5 |
-| 表格 | TanStack Table 9 |
+| 表格 | antd Table + 自建工具栏 |
 | 表单 | React Hook Form + Zod 4 |
 | 客户端状态 | Zustand 5 |
 | 图表 | Recharts 3 |
@@ -71,7 +71,7 @@ pnpm lint         # 代码检查
 ## 路线图
 
 - [x] **第 0 阶段** —— 基础设施：设计变量、主题、国际化、框架布局、CI
-- [ ] **第 1 阶段** —— 对齐 Ant Design Pro 全部 24 个路由
+- [ ] **第 1 阶段** —— 对齐 Ant Design Pro 全部 24 个路由（进行中：24 之 13）
 - [ ] **第 2 阶段** —— 主题工作室、命令面板、可视化权限矩阵、8 个 Pro 没有的页面
 - [ ] **第 3 阶段** —— 双语文档站、Gitee 镜像
 - [ ] **第 4 阶段** —— 1.0 正式版

@@ -43,7 +43,9 @@
     "cards": "卡片",
     "feedback": "反馈",
     "basicForm": "基础表单",
-    "cardList": "卡片列表"
+    "cardList": "卡片列表",
+    "exceptions": "异常页",
+    "auth": "登录注册"
   },
   "theme": {
     "label": "主题",
@@ -87,7 +89,8 @@
     "cardsDesc": "适用于仪表盘、列表、个人页与定价页的卡片组合。",
     "feedbackDesc": "警告提示、浮层、加载与空状态。",
     "basicFormDesc": "基于 React Hook Form 与 Zod 的 Schema 优先校验。",
-    "cardListDesc": "支持筛选与排序的集合视图，可在网格与列表间切换。"
+    "cardListDesc": "支持筛选与排序的集合视图，可在网格与列表间切换。",
+    "ordersDesc": "共 240 条订单，由服务端分页与筛选。"
   },
   "range": {
     "7d": "近 7 天",
@@ -125,7 +128,23 @@
     "category": "类目",
     "price": "单价",
     "sold": "销量",
-    "status": "状态"
+    "status": "状态",
+    "searchPlaceholder": "搜索订单号或客户",
+    "reference": "订单号",
+    "customer": "客户",
+    "channel": "渠道",
+    "items": "件数",
+    "amount": "金额",
+    "created": "创建时间",
+    "actions": "操作",
+    "columns": "列设置",
+    "resetColumns": "重置列",
+    "fullscreen": "全屏",
+    "selectedCount": "已选择 {{count}} 项",
+    "clearSelection": "清空",
+    "paginationTotal": "第 {{from}}–{{to}} 条 / 共 {{total}} 条",
+    "bulkExported": "已导出 {{count}} 条订单",
+    "bulkDeleted": "已删除 {{count}} 条订单"
   },
   "category": {
     "hardware": "硬件",
@@ -344,7 +363,8 @@
     "public": "公开",
     "budget": "预算",
     "notify": "变更时邮件通知我",
-    "dropFiles": "将文件拖到此处，或点击上传"
+    "dropFiles": "将文件拖到此处，或点击上传",
+    "password": "密码"
   },
   "role": {
     "owner": "所有者",
@@ -366,7 +386,9 @@
     "seatsMin": "席位数至少为 1",
     "seatsMax": "席位数最多为 500",
     "notesMax": "备注请控制在 280 字以内",
-    "fixErrors": "请修正标红的字段后重试"
+    "fixErrors": "请修正标红的字段后重试",
+    "passwordMin": "密码至少 8 位",
+    "mustAccept": "请先同意服务条款"
   },
   "list": {
     "searchPlaceholder": "搜索项目",
@@ -382,5 +404,46 @@
     "early": "起步阶段",
     "onTrack": "进展正常",
     "nearlyDone": "接近完成"
+  },
+  "orderStatus": {
+    "paid": "已支付",
+    "pending": "待支付",
+    "refunded": "已退款",
+    "failed": "支付失败"
+  },
+  "exception": {
+    "403": "你没有权限访问此页面。",
+    "404": "抱歉，找不到该页面。",
+    "500": "服务端出现异常，我们已经收到通知。",
+    "goHome": "返回仪表盘"
+  },
+  "auth": {
+    "signIn": "登录",
+    "signUp": "注册",
+    "signInSub": "欢迎回来，请输入账号信息继续。",
+    "createAccount": "创建账号",
+    "createAccountSub": "从免费版开始，无需绑定银行卡。",
+    "remember": "记住我",
+    "forgot": "忘记密码？",
+    "orContinue": "或使用以下方式",
+    "noAccount": "还没有账号？",
+    "haveAccount": "已有账号？",
+    "badCredentials": "邮箱与密码不匹配。",
+    "demoHint": "这是演示环境，请使用密码 colony-demo 登录。",
+    "welcomeBack": "登录成功",
+    "accountCreated": "账号创建成功",
+    "acceptTerms": "我已阅读并同意服务条款与隐私政策",
+    "heroTitle": "不绑定框架的 Ant Design 中后台",
+    "heroBody": "Ant Design Pro 的全部能力，构建在 Vite 与 React Router 之上。不绑定 Umi，不依赖预发布版本。",
+    "point": {
+      "noLockIn": "不依赖 UmiJS 与预发布版本",
+      "bilingual": "中文与英文同为一等公民",
+      "themed": "6 套配色、3 档密度、完整深色模式"
+    },
+    "strength": {
+      "weak": "密码强度：弱",
+      "fair": "密码强度：中",
+      "strong": "密码强度：强"
+    }
   }
 }
