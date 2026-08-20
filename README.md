@@ -53,9 +53,18 @@ has had no stable release in 13 months. Ant Design Pro works around this by pinn
 ## Quick start
 
 ```bash
+pnpm create colony-admin my-app
+cd my-app && pnpm install && pnpm dev
+```
+
+Or clone:
+
+```bash
 pnpm install
 pnpm dev          # http://localhost:5273
 ```
+
+Full documentation, in English and Chinese: **[colony.colorlib.com](https://colony.colorlib.com)**
 
 ```bash
 pnpm build        # typecheck + production build
@@ -93,7 +102,7 @@ off `:root:lang(zh)`. Every screen is reviewed in four states: light/dark × EN/
 - [x] **Phase 0** — foundation: tokens, theming, i18n, shell, CI
 - [x] **Phase 1** — parity with all 24 Ant Design Pro routes
 - [x] **Phase 2** — Theme Studio · command palette · visual RBAC · 8 pages Pro lacks
-- [ ] **Phase 3** — bilingual docs site, Gitee mirror
+- [x] **Phase 3** — bilingual docs site, scaffold CLI *(Gitee mirror pending)*
 - [ ] **Phase 4** — 1.0
 
 ## License

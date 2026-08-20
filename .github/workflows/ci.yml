@@ -57,6 +57,14 @@ jobs:
 
       # Fails the job if shipped JS grows past the agreed ceiling, so a
       # regression is caught in review rather than by a user on 3G.
+      # The docs build fails on dead links, so a renamed page cannot ship broken
+      # navigation.
+      - name: Build docs
+        run: |
+          cd docs
+          pnpm install --frozen-lockfile
+          pnpm build
+
       - name: Bundle budget
         run: |
           echo '### Bundle budget (gzip)' >> "$GITHUB_STEP_SUMMARY"

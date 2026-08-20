@@ -19,3 +19,5 @@ test-results/
 /playwright-report/
 /test-results/
 /blob-report/
+docs/.vitepress/dist/
+docs/.vitepress/cache/

@@ -1,0 +1,40 @@
+name: Bug report / 问题反馈
+description: Something is broken. / 某项功能无法正常工作。
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        English or 中文 — both are fine. 两种语言均可。
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened? / 发生了什么？
+    validations: { required: true }
+  - type: textarea
+    id: expected
+    attributes:
+      label: What did you expect? / 你期望的结果是什么？
+    validations: { required: true }
+  - type: textarea
+    id: repro
+    attributes:
+      label: Steps to reproduce / 复现步骤
+      description: A link to a reproduction helps more than anything else. / 提供可复现的链接最有帮助。
+    validations: { required: true }
+  - type: input
+    id: version
+    attributes:
+      label: Colony version / 版本
+    validations: { required: true }
+  - type: input
+    id: env
+    attributes:
+      label: Node, package manager, browser / Node、包管理器、浏览器
+      placeholder: Node 22.12, pnpm 10, Chrome 139
+  - type: dropdown
+    id: locale
+    attributes:
+      label: Locale / 语言
+      description: Some issues only appear in one script. / 有些问题只在特定语言下出现。
+      options: ['en-US', 'zh-CN', 'both / 两者']

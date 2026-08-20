@@ -1,0 +1,23 @@
+name: Feature request / 功能建议
+description: Suggest something. / 提出一个想法。
+labels: [enhancement]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: What problem does this solve? / 它解决了什么问题？
+      description: Describe the problem, not only the solution. / 请描述问题本身，而不仅是解决方案。
+    validations: { required: true }
+  - type: textarea
+    id: proposal
+    attributes:
+      label: What would you like? / 你希望怎样实现？
+  - type: checkboxes
+    id: weight
+    attributes:
+      label: Weight / 体积
+      description: |
+        Colony enforces a gzip bundle budget. Features adding a dependency need
+        to justify it. / 蚁群在 CI 中强制执行 gzip 体积预算，新增依赖需要有充分理由。
+      options:
+        - label: This would need a new dependency / 这需要引入新依赖

@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Documentation / 文档
+    url: https://colony.colorlib.com
+    about: Guides in English and 中文.
+  - name: Discussions / 讨论
+    url: https://github.com/ColorlibHQ/colony/discussions
+    about: Questions and ideas. / 提问与想法交流。

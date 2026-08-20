@@ -53,9 +53,18 @@ Ant Design Pro 是官方中后台方案，本身质量很好。但使用它就�
 ## 快速开始
 
 ```bash
+pnpm create colony-admin my-app
+cd my-app && pnpm install && pnpm dev
+```
+
+或直接克隆：
+
+```bash
 pnpm install
 pnpm dev          # http://localhost:5273
 ```
+
+完整文档（中英双语）：**[colony.colorlib.com](https://colony.colorlib.com)**
 
 ```bash
 pnpm build        # 类型检查 + 生产构建
@@ -90,7 +99,7 @@ CI 会执行 gzip 体积预算检查（`pnpm size`），超出即构建失败。
 - [x] **第 0 阶段** —— 基础设施：设计变量、主题、国际化、框架布局、CI
 - [x] **第 1 阶段** —— 对齐 Ant Design Pro 全部 24 个路由
 - [x] **第 2 阶段** —— 主题工作室 · 命令面板 · 可视化权限矩阵 · 8 个 Pro 没有的页面
-- [ ] **第 3 阶段** —— 双语文档站、Gitee 镜像
+- [x] **第 3 阶段** —— 双语文档站、脚手架 CLI（Gitee 镜像待完成）
 - [ ] **第 4 阶段** —— 1.0 正式版
 
 ## 开源协议
