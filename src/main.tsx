@@ -4,7 +4,7 @@ import { RouterProvider } from 'react-router/dom';
 
 import { Providers } from '@/app/Providers';
 import { router } from '@/app/router';
-import '@/i18n';
+import { initI18n } from '@/i18n';
 import '@/styles/global.css';
 
 async function enableMocking(): Promise<void> {
@@ -17,7 +17,7 @@ async function enableMocking(): Promise<void> {
 const rootEl = document.getElementById('root');
 if (!rootEl) throw new Error('Root element #root not found');
 
-void enableMocking().then(() => {
+void Promise.all([enableMocking(), initI18n()]).then(() => {
   createRoot(rootEl).render(
     <StrictMode>
       <Providers>

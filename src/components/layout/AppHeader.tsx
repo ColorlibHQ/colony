@@ -19,7 +19,7 @@ import {
   type Density,
   type ThemePresetId,
 } from '@/config/theme';
-import { SUPPORTED_LOCALES, isSupportedLocale } from '@/i18n';
+import { SUPPORTED_LOCALES, changeLocale, isSupportedLocale } from '@/i18n';
 import { usePreferences } from '@/stores/preferences';
 
 import { HeaderAction } from './HeaderAction';
@@ -174,7 +174,7 @@ export function AppHeader() {
           items={localeItems}
           selectedKeys={[i18n.language]}
           onSelect={(key) => {
-            if (isSupportedLocale(key)) void i18n.changeLanguage(key);
+            if (isSupportedLocale(key)) void changeLocale(key);
           }}
         />
         <Avatar

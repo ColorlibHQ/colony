@@ -62,6 +62,22 @@ pnpm test         # 单元测试
 pnpm lint         # 代码检查
 ```
 
+## 体积
+
+以无头 Chromium 访问各项目的公开演示站，统计首屏 gzip 传输的 JS：
+
+| | 首屏 JS |
+|---|---|
+| **蚁群** —— 最重的页面（`/dashboard/analysis`） | **509 kB** |
+| 蚁群 —— `/auth/login` | 330 kB |
+| Ant Design Pro | 1,178 kB |
+| design-sparx（273 star 的同类项目） | 763 kB |
+| soybean-admin（Vue + Naive UI） | 603 kB |
+| vue-vben-admin（Vue） | 312 kB |
+
+CI 会执行 gzip 体积预算检查（`pnpm size`），超出即构建失败。
+`pnpm build` 不包含 MSW；需要携带 Mock 接口时使用 `pnpm build:demo`，线上演示站即由该命令构建。
+
 ## 双语不是事后翻译
 
 `zh-CN` 由中文撰写，而非机器翻译；若新增的英文文案缺少对应中文，CI 会直接失败。

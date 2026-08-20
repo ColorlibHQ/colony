@@ -62,6 +62,24 @@ pnpm test         # unit tests
 pnpm lint         # eslint
 ```
 
+## Weight
+
+Measured as gzip transferred on first paint, in a headless Chromium against each
+project's own public demo:
+
+| | JS on first paint |
+|---|---|
+| **Colony** — heaviest route (`/dashboard/analysis`) | **509 kB** |
+| Colony — `/auth/login` | 330 kB |
+| Ant Design Pro | 1,178 kB |
+| design-sparx (the 273-star alternative) | 763 kB |
+| soybean-admin (Vue + Naive UI) | 603 kB |
+| vue-vben-admin (Vue) | 312 kB |
+
+CI enforces a gzip budget (`pnpm size`) and fails the build if it is exceeded.
+MSW is excluded from `pnpm build` — use `pnpm build:demo` for a build with the
+mock API, which is what the hosted demo runs.
+
 ## Bilingual by construction
 
 `zh-CN` is authored, not machine-translated, and CI fails if an English key lands without its

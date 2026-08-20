@@ -3,7 +3,7 @@ import { Button, Dropdown } from 'antd';
 import { useTranslation } from 'react-i18next';
 import { Outlet } from 'react-router';
 
-import { SUPPORTED_LOCALES, isSupportedLocale } from '@/i18n';
+import { SUPPORTED_LOCALES, changeLocale, isSupportedLocale } from '@/i18n';
 
 /**
  * Shell for signed-out screens.
@@ -116,7 +116,7 @@ export function AuthLayout() {
                 selectable: true,
                 selectedKeys: [i18n.language],
                 onClick: ({ key }) => {
-                  if (isSupportedLocale(key)) void i18n.changeLanguage(key);
+                  if (isSupportedLocale(key)) void changeLocale(key);
                 },
               }}
             >

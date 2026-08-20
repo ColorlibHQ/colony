@@ -36,7 +36,10 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "test:e2e": "playwright test",
-    "msw:init": "msw init public --save"
+    "msw:init": "msw init public --save",
+    "build:demo": "tsc -b && cross-env VITE_ENABLE_MSW=true vite build",
+    "preview:demo": "pnpm build:demo && vite preview",
+    "size": "node scripts/bundle-budget.mjs"
   },
   "dependencies": {
     "@ant-design/icons": "^6.3.2",
@@ -63,6 +66,7 @@
     "@types/react": "^19.2.0",
     "@types/react-dom": "^19.2.0",
     "@vitejs/plugin-react": "^6.0.5",
+    "cross-env": "^10.1.0",
     "eslint": "^9.30.0",
     "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-react-refresh": "^0.4.20",

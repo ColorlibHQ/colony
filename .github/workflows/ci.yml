@@ -39,9 +39,11 @@ jobs:
       - name: Build
         run: pnpm build
 
-      - name: Report bundle size
+      # Fails the job if shipped JS grows past the agreed ceiling, so a
+      # regression is caught in review rather than by a user on 3G.
+      - name: Bundle budget
         run: |
-          echo "### Bundle" >> "$GITHUB_STEP_SUMMARY"
+          echo '### Bundle budget (gzip)' >> "$GITHUB_STEP_SUMMARY"
           echo '```' >> "$GITHUB_STEP_SUMMARY"
-          du -ah dist/assets | sort -rh | head -20 >> "$GITHUB_STEP_SUMMARY"
+          pnpm size | tee -a "$GITHUB_STEP_SUMMARY"
           echo '```' >> "$GITHUB_STEP_SUMMARY"
