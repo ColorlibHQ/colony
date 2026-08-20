@@ -4,6 +4,7 @@ import {
   BgColorsOutlined,
   DashboardOutlined,
   FormOutlined,
+  LockOutlined,
   ProfileOutlined,
   RobotOutlined,
   SettingOutlined,
@@ -18,6 +19,7 @@ import { useMemo, type ReactNode } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useLocation, useNavigate } from 'react-router';
 
+import { useCanAccessRoute } from '@/components/access/useCan';
 import { NAVIGATION, activeNavKey, type NavNode } from '@/config/navigation';
 import { usePreferences } from '@/stores/preferences';
 
@@ -35,6 +37,7 @@ const ICONS: Record<string, ReactNode> = {
   settings: <SettingOutlined />,
   robot: <RobotOutlined />,
   palette: <BgColorsOutlined />,
+  lock: <LockOutlined />,
   warning: <WarningOutlined />,
   user: <UserOutlined />,
 };
@@ -44,6 +47,7 @@ export function AppSider() {
   const navigate = useNavigate();
   const location = useLocation();
   const collapsed = usePreferences((s) => s.siderCollapsed);
+  const canAccess = useCanAccessRoute();
 
   /**
    * Built from the shared NAVIGATION tree rather than a local copy, so the
@@ -51,6 +55,17 @@ export function AppSider() {
    * at render — a module-level array would freeze the English strings.
    */
   const items = useMemo<MenuProps['items']>(() => {
+    /**
+     * Entries the role cannot reach are hidden, and a group whose children all
+     * disappear is pruned with them — an expandable heading that opens onto
+     * nothing is worse than no heading at all.
+     */
+    const visible = (nodes: NavNode[]): NavNode[] =>
+      nodes
+        .filter((n) => !n.hidden)
+        .map((n) => (n.children ? { ...n, children: visible(n.children) } : n))
+        .filter((n) => (n.children ? n.children.length > 0 : canAccess(n.key)));
+
     const toItem = (
       node: NavNode,
     ): NonNullable<MenuProps['items']>[number] => ({
@@ -59,8 +74,9 @@ export function AppSider() {
       label: t(node.labelKey),
       children: node.children?.map(toItem),
     });
-    return NAVIGATION.filter((n) => !n.hidden).map(toItem);
-  }, [t]);
+
+    return visible(NAVIGATION).map(toItem);
+  }, [t, canAccess]);
 
   const selectedKeys = useMemo(() => {
     const key = activeNavKey(location.pathname);

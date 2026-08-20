@@ -13,6 +13,7 @@ import { useEffect, useMemo, useRef, useState, type ReactNode } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router';
 
+import { useCanAccessRoute } from '@/components/access/useCan';
 import { navLeaves } from '@/config/navigation';
 import { THEME_PRESETS, type ColorMode, type Density } from '@/config/theme';
 import { SUPPORTED_LOCALES, changeLocale } from '@/i18n';
@@ -45,6 +46,7 @@ export function CommandPalette({
   const { t, i18n } = useTranslation();
   const navigate = useNavigate();
   const prefs = usePreferences();
+  const canAccess = useCanAccessRoute();
   const inputRef = useRef<InputRef>(null);
   const listRef = useRef<HTMLUListElement>(null);
 
@@ -56,15 +58,19 @@ export function CommandPalette({
    * to the sidebar is searchable here without a second registration.
    */
   const commands = useMemo<Command[]>(() => {
-    const go: Command[] = navLeaves().map((n) => ({
-      id: `go:${n.key}`,
-      label: t(n.labelKey),
-      group: t('palette.group.navigate'),
-      icon: <ArrowRightOutlined />,
-      hint: n.key,
-      haystack: `${t(n.labelKey)} ${n.key}`,
-      run: () => void navigate(n.key),
-    }));
+    // Filtered by permission: offering a destination that 403s on arrival is
+    // worse than not offering it.
+    const go: Command[] = navLeaves()
+      .filter((n) => canAccess(n.key))
+      .map((n) => ({
+        id: `go:${n.key}`,
+        label: t(n.labelKey),
+        group: t('palette.group.navigate'),
+        icon: <ArrowRightOutlined />,
+        hint: n.key,
+        haystack: `${t(n.labelKey)} ${n.key}`,
+        run: () => void navigate(n.key),
+      }));
 
     const themes: Command[] = THEME_PRESETS.map((p) => ({
       id: `theme:${p.id}`,
@@ -109,7 +115,7 @@ export function CommandPalette({
     }));
 
     return [...go, ...themes, ...modes, ...densities, ...locales];
-  }, [t, i18n.language, navigate, prefs]);
+  }, [t, i18n.language, navigate, prefs, canAccess]);
 
   /**
    * Ranked by score, then bucketed so each group is contiguous, with groups

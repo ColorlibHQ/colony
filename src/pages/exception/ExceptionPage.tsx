@@ -1,6 +1,6 @@
 import { Button, Result, Space } from 'antd';
 import { useTranslation } from 'react-i18next';
-import { useNavigate } from 'react-router';
+import { useLocation, useNavigate } from 'react-router';
 
 import { ExceptionArt } from '@/components/common/ExceptionArt';
 
@@ -11,12 +11,19 @@ interface ExceptionPageProps {
 export function ExceptionPage({ code }: ExceptionPageProps) {
   const { t } = useTranslation();
   const navigate = useNavigate();
+  const location = useLocation();
+  // RequirePermission carries the refused path so the wall can name it.
+  const from = (location.state as { from?: string } | null)?.from;
 
   return (
     <Result
       icon={<ExceptionArt code={code} />}
       title={code}
-      subTitle={t(`exception.${code}`)}
+      subTitle={
+        code === '403' && from
+          ? t('exception.403from', { path: from })
+          : t(`exception.${code}`)
+      }
       extra={
         <Space>
           <Button onClick={() => void navigate(-1)}>{t('action.back')}</Button>

@@ -48,7 +48,7 @@ has had no stable release in 13 months. Ant Design Pro works around this by pinn
 | Charts | Recharts 3 |
 | Mocking | MSW 2 |
 | i18n | i18next — `en-US` and `zh-CN`, both first-class |
-| Tests | Vitest 4 (49) · Playwright (89) |
+| Tests | Vitest 4 (59) · Playwright (100) |
 
 ## Quick start
 
@@ -92,7 +92,7 @@ off `:root:lang(zh)`. Every screen is reviewed in four states: light/dark × EN/
 
 - [x] **Phase 0** — foundation: tokens, theming, i18n, shell, CI
 - [x] **Phase 1** — parity with all 24 Ant Design Pro routes
-- [ ] **Phase 2** — Theme Studio ✅ · command palette ✅ · visual RBAC · 8 pages Pro lacks
+- [ ] **Phase 2** — Theme Studio ✅ · command palette ✅ · visual RBAC ✅ · 8 pages Pro lacks
 - [ ] **Phase 3** — bilingual docs site, Gitee mirror
 - [ ] **Phase 4** — 1.0
 

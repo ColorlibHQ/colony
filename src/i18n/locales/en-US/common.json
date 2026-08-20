@@ -17,7 +17,9 @@
     "close": "Close",
     "back": "Back",
     "next": "Next",
-    "submit": "Submit"
+    "submit": "Submit",
+    "view": "View",
+    "update": "Update"
   },
   "state": {
     "loading": "Loading",
@@ -57,7 +59,8 @@
     "themeStudio": "Theme Studio",
     "forbidden": "403 Forbidden",
     "serverError": "500 Server error",
-    "notFound": "404 Not found"
+    "notFound": "404 Not found",
+    "access": "Access control"
   },
   "theme": {
     "label": "Theme",
@@ -112,7 +115,8 @@
     "profileAdvancedDesc": "A customer account with orders, activity and contacts.",
     "accountCenterDesc": "Your profile, published work and recent activity.",
     "assistantDesc": "A streaming chat surface with a pluggable provider.",
-    "themeStudioDesc": "Edit Ant Design tokens live and export a theme file."
+    "themeStudioDesc": "Edit Ant Design tokens live and export a theme file.",
+    "accessDesc": "Roles, permissions, and what each one can actually reach."
   },
   "range": {
     "7d": "7 days",
@@ -474,7 +478,8 @@
     "403": "You do not have permission to view this page.",
     "404": "We could not find that page.",
     "500": "Something broke on our side. The team has been notified.",
-    "goHome": "Go to dashboard"
+    "goHome": "Go to dashboard",
+    "403from": "You do not have permission to view {{path}}."
   },
   "auth": {
     "signIn": "Sign in",
@@ -658,5 +663,33 @@
       "theme": "Appearance",
       "locale": "Language"
     }
+  },
+  "resource": {
+    "dashboard": "Dashboard",
+    "orders": "Orders",
+    "customers": "Customers",
+    "content": "Content",
+    "billing": "Billing",
+    "settings": "Settings",
+    "users": "Users"
+  },
+  "access": {
+    "resource": "Resource",
+    "matrix": "Permission matrix",
+    "effect": "What this role sees",
+    "effectDesc": "{{role}} is blocked from {{blocked}} of {{total}} guarded pages.",
+    "allowed": "Allowed",
+    "blocked": "Blocked",
+    "resetDefaults": "Reset to defaults",
+    "resetTitle": "Reset all permissions?",
+    "resetDesc": "Every role returns to its shipped grants. Your edits are discarded.",
+    "liveNotice": "This matrix is live",
+    "liveNoticeDesc": "Changes apply immediately — the sidebar hides what the role cannot reach, the command palette stops offering it, and guarded routes redirect to 403.",
+    "lockoutHint": "Removing this would lock you out of this page.",
+    "actAs": "Act as {{role}}",
+    "actingAs": "You are {{role}}",
+    "actAsTitle": "Act as {{role}}?",
+    "actAsConfirm": "Switch role",
+    "actAsDesc": "That role cannot open this page, so you will be redirected to 403. Clear the colony.auth entry in local storage to get back."
   }
 }

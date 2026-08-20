@@ -83,6 +83,7 @@ export const NAVIGATION: NavNode[] = [
   },
   { key: '/ai/assistant', labelKey: 'nav.assistant', icon: 'robot' },
   { key: '/theme-studio', labelKey: 'nav.themeStudio', icon: 'palette' },
+  { key: '/access', labelKey: 'nav.access', icon: 'lock' },
   {
     key: '/exception',
     labelKey: 'nav.exceptions',

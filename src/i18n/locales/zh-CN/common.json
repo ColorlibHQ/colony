@@ -17,7 +17,9 @@
     "close": "关闭",
     "back": "返回",
     "next": "下一步",
-    "submit": "提交"
+    "submit": "提交",
+    "view": "查看",
+    "update": "编辑"
   },
   "state": {
     "loading": "加载中",
@@ -57,7 +59,8 @@
     "themeStudio": "主题工作室",
     "forbidden": "403 无权限",
     "serverError": "500 服务器错误",
-    "notFound": "404 页面不存在"
+    "notFound": "404 页面不存在",
+    "access": "权限管理"
   },
   "theme": {
     "label": "主题",
@@ -112,7 +115,8 @@
     "profileAdvancedDesc": "客户账号及其订单、动态与联系人。",
     "accountCenterDesc": "你的资料、已发布内容与最近动态。",
     "assistantDesc": "支持流式输出的对话界面，接口可替换。",
-    "themeStudioDesc": "实时调整 Ant Design Design Token，并导出主题文件。"
+    "themeStudioDesc": "实时调整 Ant Design Design Token，并导出主题文件。",
+    "accessDesc": "角色、权限，以及每个角色实际能访问的页面。"
   },
   "range": {
     "7d": "近 7 天",
@@ -474,7 +478,8 @@
     "403": "你没有权限访问此页面。",
     "404": "抱歉，找不到该页面。",
     "500": "服务端出现异常，我们已经收到通知。",
-    "goHome": "返回仪表盘"
+    "goHome": "返回仪表盘",
+    "403from": "你没有权限访问 {{path}}。"
   },
   "auth": {
     "signIn": "登录",
@@ -658,5 +663,33 @@
       "theme": "外观",
       "locale": "语言"
     }
+  },
+  "resource": {
+    "dashboard": "仪表盘",
+    "orders": "订单",
+    "customers": "客户",
+    "content": "内容",
+    "billing": "账务",
+    "settings": "设置",
+    "users": "用户"
+  },
+  "access": {
+    "resource": "资源",
+    "matrix": "权限矩阵",
+    "effect": "该角色可见范围",
+    "effectDesc": "{{role}} 在 {{total}} 个受控页面中有 {{blocked}} 个无法访问。",
+    "allowed": "可访问",
+    "blocked": "已拦截",
+    "resetDefaults": "恢复默认",
+    "resetTitle": "确定恢复全部权限设置？",
+    "resetDesc": "所有角色将恢复为出厂配置，你的修改会被丢弃。",
+    "liveNotice": "该矩阵即时生效",
+    "liveNoticeDesc": "修改立即生效 —— 侧边栏会隐藏该角色无法访问的入口，命令面板不再提供这些页面，受控路由会跳转至 403。",
+    "lockoutHint": "取消此项会导致你无法再进入本页面。",
+    "actAs": "以 {{role}} 身份查看",
+    "actingAs": "当前身份：{{role}}",
+    "actAsTitle": "切换为 {{role}} 身份？",
+    "actAsConfirm": "确认切换",
+    "actAsDesc": "该角色无权访问本页面，切换后会跳转至 403。如需恢复，请清除本地存储中的 colony.auth。"
   }
 }

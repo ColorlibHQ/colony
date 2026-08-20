@@ -9,6 +9,11 @@
  * Budgets are set a little above today's figures — tight enough to catch a
  * careless import, loose enough that ordinary feature work does not trip them.
  * Raise them deliberately, in a commit that says why.
+ *
+ * It measures whatever sits in dist/, so it also asserts that dist/ holds a
+ * PRODUCTION build. Running after `pnpm test:e2e` (which builds the demo) would
+ * otherwise measure a bundle carrying MSW and fail with a number nobody ships —
+ * which is exactly what happened, and in CI's step order too.
  */
 import { readdir, readFile, stat } from 'node:fs/promises';
 import { gzipSync } from 'node:zlib';
@@ -43,6 +48,18 @@ for (const f of files) {
   sized.push({ file: f, kb: await gzipKB(p) });
 }
 sized.sort((a, b) => b.kb - a.kb);
+
+// MSW only appears in `build:demo`. Its presence means dist/ is the demo build.
+const mswChunk = sized.find((f) => /^browser-/.test(f.file) && f.kb > 80);
+if (mswChunk) {
+  console.error(
+    `\nbundle-budget: dist/ looks like a demo build (${mswChunk.file}, ` +
+      `${mswChunk.kb.toFixed(0)} kB — that is MSW).\n` +
+      `Run \`pnpm build\` before \`pnpm size\`; the budget covers what users ship,\n` +
+      `not what the hosted demo serves.\n`,
+  );
+  process.exit(1);
+}
 
 const total = sized.reduce((a, f) => a + f.kb, 0);
 const largest = sized[0];
