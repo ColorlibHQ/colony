@@ -1,0 +1,3 @@
+# SPA fallback: client-side routing needs unknown paths served index.html, or a
+# deep link 404s from the host before React ever runs.
+/*    /index.html   200

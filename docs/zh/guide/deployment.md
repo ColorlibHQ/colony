@@ -7,7 +7,9 @@ pnpm build     # -> dist/
 ```
 
 ::: danger 请使用 `build` 而非 `build:demo`
-`build:demo` 会把 Mock 服务打进产物，它将拦截本应发往真实接口的请求。
+`build:demo` 会把 Mock 服务打进产物，拦截本应发往真实接口的请求；同时还会复制
+`demo-public/`，其中的 `robots.txt` 会屏蔽整站抓取 —— 这对处于 SPA 回退之后的演示站是
+正确的，但用在你的应用上会让它悄悄从搜索引擎消失。
 :::
 
 ## SPA 回退

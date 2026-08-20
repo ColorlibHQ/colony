@@ -1,0 +1,14 @@
+# This is a demo. The SPA fallback returns 200 for *every* path, which is an
+# infinite crawl space if left open — the same shape that ran up a large
+# Cloudflare bill on demo.dashboardpack.com in 2026.
+#
+# The canonical, indexable content is the documentation site. Only the demo's
+# entry points are allowed here; everything else is closed.
+
+User-agent: *
+Allow: /$
+Allow: /dashboard/analysis
+Allow: /auth/login
+Disallow: /
+
+Sitemap: https://colony.colorlib.com/sitemap.xml

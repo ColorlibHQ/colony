@@ -7,8 +7,10 @@ pnpm build     # -> dist/
 ```
 
 ::: danger Use `build`, not `build:demo`
-`build:demo` bundles the mock server. It will intercept requests meant for your
-real API.
+`build:demo` bundles the mock server, which will intercept requests meant for
+your real API. It also copies `demo-public/` — including a `robots.txt` that
+closes the entire site to crawlers. Correct for a demo behind an SPA fallback;
+it would silently deindex your app.
 :::
 
 ## SPA fallback

@@ -36,7 +36,7 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "test:e2e": "playwright test",
-    "msw:init": "msw init public --save",
+    "msw:init": "msw init demo-public --save",
     "build:demo": "tsc -b && cross-env VITE_ENABLE_MSW=true vite build",
     "preview:demo": "pnpm build:demo && vite preview",
     "size": "vite build && node scripts/bundle-budget.mjs",
@@ -85,7 +85,7 @@
   },
   "msw": {
     "workerDirectory": [
-      "public"
+      "demo-public"
     ]
   },
   "pnpm": {

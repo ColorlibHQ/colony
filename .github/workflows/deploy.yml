@@ -1,0 +1,62 @@
+name: Deploy
+
+# Two Cloudflare Pages projects from one repo:
+#   colony.colorlib.com       docs — the canonical, indexable site
+#   demo.colony.colorlib.com  the app — deliberately not indexed
+#
+# Requires two repository secrets:
+#   CLOUDFLARE_API_TOKEN   scoped to "Cloudflare Pages: Edit"
+#   CLOUDFLARE_ACCOUNT_ID
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  docs:
+    name: Docs -> colony.colorlib.com
+    runs-on: ubuntu-latest
+    permissions: { contents: read, deployments: write }
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22, cache: pnpm }
+
+      - run: pnpm install --frozen-lockfile
+        working-directory: docs
+      - run: pnpm build
+        working-directory: docs
+
+      - uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: pages deploy docs/.vitepress/dist --project-name=colony-docs
+
+  demo:
+    name: Demo -> demo.colony.colorlib.com
+    runs-on: ubuntu-latest
+    permissions: { contents: read, deployments: write }
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22, cache: pnpm }
+
+      - run: pnpm install --frozen-lockfile
+
+      # build:demo, NOT build — the hosted demo needs the mock API to have
+      # anything to show. Never use this artifact as a starting point for a
+      # real app; it bundles MSW.
+      - run: pnpm build:demo
+
+      - uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: pages deploy dist --project-name=colony-demo
