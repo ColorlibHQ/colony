@@ -54,7 +54,10 @@
     "profileAdvanced": "客户详情",
     "accountCenter": "个人中心",
     "assistant": "AI 助手",
-    "themeStudio": "主题工作室"
+    "themeStudio": "主题工作室",
+    "forbidden": "403 无权限",
+    "serverError": "500 服务器错误",
+    "notFound": "404 页面不存在"
   },
   "theme": {
     "label": "主题",
@@ -637,6 +640,23 @@
       "aa": "符合 WCAG AA",
       "aaLarge": "仅符合大号文字 AA",
       "fail": "未达到 WCAG AA"
+    }
+  },
+  "palette": {
+    "trigger": "搜索",
+    "placeholder": "搜索页面与命令…",
+    "noResults": "没有匹配的命令",
+    "results": "命令结果",
+    "hintNavigate": "切换",
+    "hintRun": "执行",
+    "setTheme": "配色：{{name}}",
+    "setMode": "外观：{{name}}",
+    "setDensity": "密度：{{name}}",
+    "setLocale": "语言：{{name}}",
+    "group": {
+      "navigate": "前往",
+      "theme": "外观",
+      "locale": "语言"
     }
   }
 }

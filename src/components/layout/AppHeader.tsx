@@ -6,9 +6,10 @@ import {
   MenuFoldOutlined,
   MenuUnfoldOutlined,
   MoonOutlined,
+  SearchOutlined,
   SunOutlined,
 } from '@ant-design/icons';
-import { Avatar, Breadcrumb, Button, Layout, Space, Tooltip } from 'antd';
+import { Avatar, Breadcrumb, Button, Layout, Space, Tag, Tooltip } from 'antd';
 import type { MenuProps } from 'antd';
 import { useTranslation } from 'react-i18next';
 import { Link, useLocation } from 'react-router';
@@ -20,6 +21,7 @@ import {
   type ThemePresetId,
 } from '@/config/theme';
 import { SUPPORTED_LOCALES, changeLocale, isSupportedLocale } from '@/i18n';
+import { matchNav } from '@/config/navigation';
 import { usePreferences } from '@/stores/preferences';
 
 import { HeaderAction } from './HeaderAction';
@@ -35,34 +37,7 @@ const MODE_ICON: Record<ColorMode, ReturnType<typeof SunOutlined>> = {
   system: <DesktopOutlined />,
 };
 
-/** Route segment -> i18n key, for the breadcrumb trail. */
-const SEGMENT_LABELS: Record<string, string> = {
-  dashboard: 'nav.dashboard',
-  analysis: 'nav.analysis',
-  monitor: 'nav.monitor',
-  workplace: 'nav.workplace',
-  table: 'nav.table',
-  form: 'nav.forms',
-  list: 'nav.lists',
-  profile: 'nav.profile',
-  account: 'nav.account',
-  components: 'nav.components',
-  elements: 'nav.elements',
-  cards: 'nav.cards',
-  feedback: 'nav.feedback',
-  basic: 'nav.basicForm',
-  card: 'nav.cardList',
-  step: 'nav.stepForm',
-  advanced: 'nav.advancedForm',
-  search: 'nav.searchList',
-  center: 'nav.accountCenter',
-  settings: 'nav.settings',
-  ai: 'nav.assistant',
-  assistant: 'nav.assistant',
-  'theme-studio': 'nav.themeStudio',
-};
-
-export function AppHeader() {
+export function AppHeader({ onOpenPalette }: { onOpenPalette: () => void }) {
   const { t, i18n } = useTranslation();
   const location = useLocation();
   const {
@@ -76,16 +51,21 @@ export function AppHeader() {
     setDensity,
   } = usePreferences();
 
-  const segments = location.pathname.split('/').filter(Boolean);
-  const crumbs = segments.map((seg, i) => {
-    const href = `/${segments.slice(0, i + 1).join('/')}`;
-    const key = SEGMENT_LABELS[seg];
-    const title = key ? t(key) : seg;
-    return {
-      key: href,
-      title: i === segments.length - 1 ? title : <Link to={href}>{title}</Link>,
-    };
-  });
+  /**
+   * Derived from the shared NAVIGATION tree. A hand-kept segment->label map
+   * lived here and fell out of date twice, printing raw lowercase route
+   * segments until someone noticed.
+   */
+  const trail = matchNav(location.pathname);
+  const crumbs = trail.map((node, i) => ({
+    key: node.key,
+    title:
+      i === trail.length - 1 ? (
+        t(node.labelKey)
+      ) : (
+        <Link to={node.key}>{t(node.labelKey)}</Link>
+      ),
+  }));
 
   const localeItems: MenuProps['items'] = SUPPORTED_LOCALES.map((code) => ({
     key: code,
@@ -153,6 +133,19 @@ export function AppHeader() {
       )}
 
       <div style={{ flex: 1 }} />
+
+      {/* A shortcut nobody can discover is not a feature — show the trigger. */}
+      <Button
+        onClick={onOpenPalette}
+        aria-label={t('a11y.openCommandPalette')}
+        icon={<SearchOutlined />}
+        style={{ color: 'var(--c-text-tertiary)' }}
+      >
+        <span className="palette-hint">{t('palette.trigger')}</span>
+        <Tag style={{ marginInlineStart: 4, fontFamily: 'var(--font-mono)' }}>
+          ⌘K
+        </Tag>
+      </Button>
 
       <Space size={2}>
         <HeaderAction

@@ -54,7 +54,10 @@
     "profileAdvanced": "Account detail",
     "accountCenter": "Account centre",
     "assistant": "AI assistant",
-    "themeStudio": "Theme Studio"
+    "themeStudio": "Theme Studio",
+    "forbidden": "403 Forbidden",
+    "serverError": "500 Server error",
+    "notFound": "404 Not found"
   },
   "theme": {
     "label": "Theme",
@@ -637,6 +640,23 @@
       "aa": "WCAG AA",
       "aaLarge": "AA large text only",
       "fail": "Below WCAG AA"
+    }
+  },
+  "palette": {
+    "trigger": "Search",
+    "placeholder": "Search pages and commands…",
+    "noResults": "No matching command",
+    "results": "Command results",
+    "hintNavigate": "navigate",
+    "hintRun": "run",
+    "setTheme": "Theme: {{name}}",
+    "setMode": "Appearance: {{name}}",
+    "setDensity": "Density: {{name}}",
+    "setLocale": "Language: {{name}}",
+    "group": {
+      "navigate": "Go to",
+      "theme": "Appearance",
+      "locale": "Language"
     }
   }
 }

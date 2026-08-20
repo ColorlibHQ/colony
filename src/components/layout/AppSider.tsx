@@ -1,28 +1,43 @@
 import {
   AppstoreOutlined,
-  BgColorsOutlined,
   BarChartOutlined,
+  BgColorsOutlined,
   DashboardOutlined,
   FormOutlined,
   ProfileOutlined,
   RobotOutlined,
   SettingOutlined,
   TableOutlined,
-  WarningOutlined,
   UnorderedListOutlined,
   UserOutlined,
+  WarningOutlined,
 } from '@ant-design/icons';
 import { Layout, Menu } from 'antd';
 import type { MenuProps } from 'antd';
-import { useMemo } from 'react';
+import { useMemo, type ReactNode } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useLocation, useNavigate } from 'react-router';
 
+import { NAVIGATION, activeNavKey, type NavNode } from '@/config/navigation';
 import { usePreferences } from '@/stores/preferences';
 
 const { Sider } = Layout;
 
-type MenuItem = Required<MenuProps>['items'][number];
+/** Icons stay in the view layer; navigation.ts only names them. */
+const ICONS: Record<string, ReactNode> = {
+  dashboard: <DashboardOutlined />,
+  chart: <BarChartOutlined />,
+  appstore: <AppstoreOutlined />,
+  form: <FormOutlined />,
+  list: <UnorderedListOutlined />,
+  table: <TableOutlined />,
+  profile: <ProfileOutlined />,
+  settings: <SettingOutlined />,
+  robot: <RobotOutlined />,
+  palette: <BgColorsOutlined />,
+  warning: <WarningOutlined />,
+  user: <UserOutlined />,
+};
 
 export function AppSider() {
   const { t } = useTranslation();
@@ -31,141 +46,25 @@ export function AppSider() {
   const collapsed = usePreferences((s) => s.siderCollapsed);
 
   /**
-   * Menu labels are i18n keys resolved at render, never captured in a module
-   * constant — a module-level array would freeze the English strings and
-   * silently ignore a locale switch.
+   * Built from the shared NAVIGATION tree rather than a local copy, so the
+   * sidebar, breadcrumb and command palette cannot drift apart. Labels resolve
+   * at render — a module-level array would freeze the English strings.
    */
-  const items = useMemo<MenuItem[]>(
-    () => [
-      {
-        key: '/dashboard',
-        icon: <DashboardOutlined />,
-        label: t('nav.dashboard'),
-        children: [
-          {
-            key: '/dashboard/analysis',
-            icon: <BarChartOutlined />,
-            label: t('nav.analysis'),
-          },
-          { key: '/dashboard/monitor', label: t('nav.monitor') },
-          { key: '/dashboard/workplace', label: t('nav.workplace') },
-        ],
-      },
-      {
-        key: '/components',
-        icon: <AppstoreOutlined />,
-        label: t('nav.components'),
-        children: [
-          { key: '/components/elements', label: t('nav.elements') },
-          { key: '/components/cards', label: t('nav.cards') },
-          { key: '/components/feedback', label: t('nav.feedback') },
-        ],
-      },
-      {
-        key: '/form',
-        icon: <FormOutlined />,
-        label: t('nav.forms'),
-        children: [
-          { key: '/form/basic', label: t('nav.basicForm') },
-          { key: '/form/step', label: t('nav.stepForm') },
-          { key: '/form/advanced', label: t('nav.advancedForm') },
-        ],
-      },
-      {
-        key: '/list',
-        icon: <UnorderedListOutlined />,
-        label: t('nav.lists'),
-        children: [
-          { key: '/list/basic', label: t('nav.basicList') },
-          { key: '/list/card', label: t('nav.cardList') },
-          { key: '/list/search', label: t('nav.searchList') },
-        ],
-      },
-      { key: '/table', icon: <TableOutlined />, label: t('nav.table') },
-      {
-        key: '/profile',
-        icon: <ProfileOutlined />,
-        label: t('nav.profile'),
-        children: [
-          { key: '/profile/basic', label: t('nav.profileBasic') },
-          { key: '/profile/advanced', label: t('nav.profileAdvanced') },
-        ],
-      },
-      {
-        key: '/account',
-        icon: <SettingOutlined />,
-        label: t('nav.account'),
-        children: [
-          { key: '/account/center', label: t('nav.accountCenter') },
-          { key: '/account/settings', label: t('nav.settings') },
-        ],
-      },
-      {
-        key: '/ai/assistant',
-        icon: <RobotOutlined />,
-        label: t('nav.assistant'),
-      },
-      {
-        key: '/theme-studio',
-        icon: <BgColorsOutlined />,
-        label: t('nav.themeStudio'),
-      },
-      {
-        key: '/exception',
-        icon: <WarningOutlined />,
-        label: t('nav.exceptions'),
-        children: [
-          { key: '/403', label: '403' },
-          { key: '/500', label: '500' },
-          { key: '/not-found', label: '404' },
-        ],
-      },
-      {
-        key: '/auth',
-        icon: <UserOutlined />,
-        label: t('nav.auth'),
-        children: [
-          { key: '/auth/login', label: t('auth.signIn') },
-          { key: '/auth/register', label: t('auth.signUp') },
-        ],
-      },
-    ],
-    [t],
-  );
+  const items = useMemo<MenuProps['items']>(() => {
+    const toItem = (
+      node: NavNode,
+    ): NonNullable<MenuProps['items']>[number] => ({
+      key: node.key,
+      icon: node.icon ? ICONS[node.icon] : undefined,
+      label: t(node.labelKey),
+      children: node.children?.map(toItem),
+    });
+    return NAVIGATION.filter((n) => !n.hidden).map(toItem);
+  }, [t]);
 
-  /** Longest matching prefix wins, so /dashboard/analysis beats /dashboard. */
   const selectedKeys = useMemo(() => {
-    const path = location.pathname;
-    const flat = [
-      '/dashboard/analysis',
-      '/dashboard/monitor',
-      '/dashboard/workplace',
-      '/components/elements',
-      '/components/cards',
-      '/components/feedback',
-      '/form/basic',
-      '/form/step',
-      '/form/advanced',
-      '/list/basic',
-      '/list/card',
-      '/list/search',
-      '/profile/basic',
-      '/profile/advanced',
-      '/account/center',
-      '/account/center',
-      '/account/settings',
-      '/ai/assistant',
-      '/theme-studio',
-      '/table',
-      '/403',
-      '/500',
-      '/auth/login',
-      '/auth/register',
-    ];
-    const match = flat
-      .filter((k) => path === k || path.startsWith(`${k}/`))
-      .sort((a, b) => b.length - a.length)[0];
-    return match ? [match] : [];
+    const key = activeNavKey(location.pathname);
+    return key ? [key] : [];
   }, [location.pathname]);
 
   return (

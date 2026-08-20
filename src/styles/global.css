@@ -128,3 +128,15 @@ th {
     scroll-behavior: auto !important;
   }
 }
+
+/* The command palette trigger keeps its icon on narrow screens but drops the
+   label, which is the first thing that stops earning its width. */
+.palette-hint {
+  display: none;
+}
+
+@media (min-width: 860px) {
+  .palette-hint {
+    display: inline;
+  }
+}
