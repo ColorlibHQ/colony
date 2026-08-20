@@ -82,13 +82,8 @@ Ant Design Pro 是官方中后台方案，本身质量很好。但使用它就�
 ## 快速开始
 
 ```bash
-pnpm create colony-admin my-app
-cd my-app && pnpm install && pnpm dev
-```
-
-或直接克隆：
-
-```bash
+git clone https://github.com/ColorlibHQ/colony.git
+cd colony
 pnpm install
 pnpm dev          # http://localhost:5273
 ```

@@ -1,0 +1,39 @@
+{
+  "name": "create-colony-admin",
+  "version": "0.1.0",
+  "description": "Scaffold Colony — a free, bilingual React admin dashboard on Ant Design v6, Vite 8 and TypeScript. No meta-framework, no prerelease dependencies.",
+  "license": "MIT",
+  "author": "Colorlib",
+  "type": "module",
+  "bin": {
+    "create-colony-admin": "index.mjs"
+  },
+  "files": [
+    "index.mjs",
+    "README.md"
+  ],
+  "engines": {
+    "node": "^20.19.0 || >=22.12.0"
+  },
+  "keywords": [
+    "ant-design",
+    "antd",
+    "admin",
+    "dashboard",
+    "admin-template",
+    "react",
+    "vite",
+    "typescript",
+    "create-app",
+    "scaffold"
+  ],
+  "homepage": "https://colony.colorlib.com",
+  "bugs": {
+    "url": "https://github.com/ColorlibHQ/colony/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ColorlibHQ/colony.git",
+    "directory": "packages/create-colony-admin"
+  }
+}

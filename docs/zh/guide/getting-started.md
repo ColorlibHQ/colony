@@ -5,18 +5,7 @@
 Node **20.19+** 或 **22.12+**，以及 pnpm。这是 Vite 8 的最低要求；版本过低会在安装阶段
 就报错，而不是等到构建时才失败 —— 这是更好的失败方式。
 
-## 创建新项目
-
-```bash
-pnpm create colony-admin my-app
-cd my-app
-pnpm install
-pnpm dev
-```
-
-应用运行在 `http://localhost:5273`。
-
-## 或者直接克隆
+## 克隆仓库
 
 ```bash
 git clone https://github.com/ColorlibHQ/colony.git
@@ -24,6 +13,8 @@ cd colony
 pnpm install
 pnpm dev
 ```
+
+应用运行在 `http://localhost:5273`。
 
 ## 常用脚本
 

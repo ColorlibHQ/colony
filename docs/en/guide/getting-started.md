@@ -5,18 +5,7 @@
 Node **20.19+** or **22.12+**, and pnpm. Vite 8 sets that floor; older Node will
 fail at install rather than at build, which is the better failure.
 
-## Scaffold a new project
-
-```bash
-pnpm create colony-admin my-app
-cd my-app
-pnpm install
-pnpm dev
-```
-
-The app is on `http://localhost:5273`.
-
-## Or clone
+## Clone
 
 ```bash
 git clone https://github.com/ColorlibHQ/colony.git
@@ -24,6 +13,8 @@ cd colony
 pnpm install
 pnpm dev
 ```
+
+The app is on `http://localhost:5273`.
 
 ## Scripts
 
