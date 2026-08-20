@@ -1,4 +1,5 @@
 import { expect, test } from '@playwright/test';
+import type { Page } from '@playwright/test';
 
 /**
  * DataTable is the component the "no ProComponents" claim rests on, so its
@@ -9,10 +10,10 @@ import { expect, test } from '@playwright/test';
  *    selectors must be scoped to `tr.ant-table-row`;
  *  - the real checkbox <input> is visually hidden — click `.ant-checkbox`.
  */
-const rows = (page: import('@playwright/test').Page) =>
+const rows = (page: Page) =>
   page.locator('.ant-table-tbody tr.ant-table-row');
 
-const amounts = (page: import('@playwright/test').Page) =>
+const amounts = (page: Page) =>
   page.evaluate(() => {
     const heads = [...document.querySelectorAll('.ant-table-thead th')].map(
       (h) => h.textContent?.trim() ?? '',

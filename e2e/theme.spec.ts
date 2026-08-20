@@ -1,12 +1,13 @@
 import { expect, test } from '@playwright/test';
+import type { Page } from '@playwright/test';
 
 const LIGHT_BG = 'rgb(247, 248, 250)';
 const DARK_BG = 'rgb(20, 22, 27)';
 
-const bg = (page: import('@playwright/test').Page) =>
+const bg = (page: Page) =>
   page.evaluate(() => getComputedStyle(document.body).backgroundColor);
 
-const attr = (page: import('@playwright/test').Page, name: string) =>
+const attr = (page: Page, name: string) =>
   page.evaluate((n) => document.documentElement.getAttribute(n), name);
 
 test.describe('theme', () => {
