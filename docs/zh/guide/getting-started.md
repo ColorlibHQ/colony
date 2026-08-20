@@ -5,7 +5,21 @@
 Node **20.19+** 或 **22.12+**，以及 pnpm。这是 Vite 8 的最低要求；版本过低会在安装阶段
 就报错，而不是等到构建时才失败 —— 这是更好的失败方式。
 
-## 克隆仓库
+## 创建新项目
+
+```bash
+pnpm create colony-admin my-app
+cd my-app
+pnpm install
+pnpm dev
+```
+
+应用运行在 `http://localhost:5273`。
+
+同样支持 npm、yarn 与 bun —— 脚手架会识别是哪个包管理器调用了它，
+并给出对应的后续命令。
+
+## 或者直接克隆
 
 ```bash
 git clone https://github.com/ColorlibHQ/colony.git
@@ -14,7 +28,8 @@ pnpm install
 pnpm dev
 ```
 
-应用运行在 `http://localhost:5273`。
+克隆会同时得到文档站、CI 工作流与 `packages/` 目录；脚手架不会包含这些，
+因为它们属于本项目而不属于你的项目。
 
 ## 常用脚本
 

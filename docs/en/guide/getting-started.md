@@ -5,7 +5,21 @@
 Node **20.19+** or **22.12+**, and pnpm. Vite 8 sets that floor; older Node will
 fail at install rather than at build, which is the better failure.
 
-## Clone
+## Scaffold a new project
+
+```bash
+pnpm create colony-admin my-app
+cd my-app
+pnpm install
+pnpm dev
+```
+
+The app is on `http://localhost:5273`.
+
+Works with npm, yarn and bun too — the scaffolder detects which one invoked it
+and tells you the right commands to run next.
+
+## Or clone
 
 ```bash
 git clone https://github.com/ColorlibHQ/colony.git
@@ -14,7 +28,9 @@ pnpm install
 pnpm dev
 ```
 
-The app is on `http://localhost:5273`.
+Cloning gives you the docs site, the CI workflows and the `packages/` directory
+as well; the scaffolder leaves those out, since they belong to this project
+rather than yours.
 
 ## Scripts
 

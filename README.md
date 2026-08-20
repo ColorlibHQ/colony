@@ -82,6 +82,13 @@ has had no stable release in 13 months. Ant Design Pro works around this by pinn
 ## Quick start
 
 ```bash
+pnpm create colony-admin my-app
+cd my-app && pnpm install && pnpm dev
+```
+
+Or clone the repository directly:
+
+```bash
 git clone https://github.com/ColorlibHQ/colony.git
 cd colony
 pnpm install
