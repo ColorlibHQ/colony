@@ -14,6 +14,31 @@
 > 另有主题工作室、命令面板、可视化权限矩阵，以及 8 个 Pro 所没有的页面。
 > 下一步是双语文档站。详见[路线图](#路线图)。
 
+## 界面预览
+
+<p align="center">
+  <img src="docs/public/screenshots/dashboard-light.webp" alt="浅色模式下的分析页" width="880">
+</p>
+
+<table>
+  <tr>
+    <td width="50%"><img src="docs/public/screenshots/dashboard-dark.webp" alt="深色模式下的分析页"><br><em>深色模式 —— 共三种状态而非两种：显式浅色、显式深色，以及不写入任何标记的跟随系统。</em></td>
+    <td width="50%"><img src="docs/public/screenshots/theme-studio.webp" alt="主题工作室"><br><em>主题工作室 —— 实时编辑 antd Token，取色器旁直接显示 WCAG 对比度。</em></td>
+  </tr>
+  <tr>
+    <td><img src="docs/public/screenshots/data-table.webp" alt="数据表格"><br><em>DataTable —— 服务端分页、排序与分面筛选，并内置安全的 CSV 导出。</em></td>
+    <td><img src="docs/public/screenshots/access-control.webp" alt="权限矩阵"><br><em>可视化权限 —— 勾选即时生效，侧边栏、命令面板与路由守卫同步响应。</em></td>
+  </tr>
+  <tr>
+    <td><img src="docs/public/screenshots/command-palette.webp" alt="命令面板"><br><em>⌘K 命令面板 —— 以子序列匹配覆盖全部路由与设置。</em></td>
+    <td><img src="docs/public/screenshots/kanban.webp" alt="看板"><br><em>看板 —— 支持指针拖拽与键盘拖拽。</em></td>
+  </tr>
+  <tr>
+    <td><img src="docs/public/screenshots/dashboard-zh.webp" alt="中文界面"><br><em>中文不是一层翻译 —— 汉字拥有独立的字号体系。</em></td>
+    <td><img src="docs/public/screenshots/components-zh.webp" alt="深色模式下的中文组件页"><br><em>每个页面都在四种状态下走查：浅色/深色 × 中文/英文。</em></td>
+  </tr>
+</table>
+
 ## 为什么要做这个
 
 Ant Design Pro 是官方中后台方案，本身质量很好。但使用它就意味着要接受

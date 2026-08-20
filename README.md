@@ -14,6 +14,31 @@
 > plus Theme Studio, a command palette, visual RBAC and eight pages Pro has no
 > equivalent for. Next: bilingual docs site. See [the roadmap](#roadmap).
 
+## Screenshots
+
+<p align="center">
+  <img src="docs/public/screenshots/dashboard-light.webp" alt="Analysis dashboard in light mode" width="880">
+</p>
+
+<table>
+  <tr>
+    <td width="50%"><img src="docs/public/screenshots/dashboard-dark.webp" alt="Analysis dashboard in dark mode"><br><em>Dark mode — three states, not two: explicit light, explicit dark, and the system default that stamps nothing.</em></td>
+    <td width="50%"><img src="docs/public/screenshots/theme-studio.webp" alt="Theme Studio"><br><em>Theme Studio — edit antd tokens live, with the WCAG contrast ratio beside the picker.</em></td>
+  </tr>
+  <tr>
+    <td><img src="docs/public/screenshots/data-table.webp" alt="Data table"><br><em>DataTable — server-side paging, sorting and faceted filters, with a hardened CSV export.</em></td>
+    <td><img src="docs/public/screenshots/access-control.webp" alt="Access control matrix"><br><em>Visual access control — flip a checkbox and the sidebar, palette and route guards all follow.</em></td>
+  </tr>
+  <tr>
+    <td><img src="docs/public/screenshots/command-palette.webp" alt="Command palette"><br><em>⌘K command palette — subsequence matching over every route and setting.</em></td>
+    <td><img src="docs/public/screenshots/kanban.webp" alt="Kanban board"><br><em>Kanban — drag with a pointer or the keyboard.</em></td>
+  </tr>
+  <tr>
+    <td><img src="docs/public/screenshots/dashboard-zh.webp" alt="Dashboard in Chinese"><br><em>Chinese is not a translation layer — Han glyphs get their own type scale.</em></td>
+    <td><img src="docs/public/screenshots/components-zh.webp" alt="Component gallery in Chinese, dark mode"><br><em>Every screen is reviewed in four states: light/dark × EN/ZH.</em></td>
+  </tr>
+</table>
+
 ## Why this exists
 
 Ant Design Pro is the official admin template, and it's good. But using it means adopting
