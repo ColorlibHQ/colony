@@ -28,6 +28,11 @@ const AccessMatrixPage = lazy(() => import('@/pages/access/AccessMatrix'));
 const KanbanPage = lazy(() => import('@/pages/workspace/Kanban'));
 const CalendarPage = lazy(() => import('@/pages/workspace/Calendar'));
 const InboxPage = lazy(() => import('@/pages/workspace/Inbox'));
+const FilesPage = lazy(() => import('@/pages/workspace/Files'));
+const NotificationsPage = lazy(() => import('@/pages/workspace/Notifications'));
+const AuditLogPage = lazy(() => import('@/pages/workspace/AuditLog'));
+const BillingPage = lazy(() => import('@/pages/workspace/Billing'));
+const OnboardingPage = lazy(() => import('@/pages/workspace/Onboarding'));
 const LoginPage = lazy(() => import('@/pages/auth/Login'));
 const RegisterPage = lazy(() => import('@/pages/auth/Register'));
 const RegisterResultPage = lazy(() => import('@/pages/auth/RegisterResult'));
@@ -84,6 +89,11 @@ export const router = createBrowserRouter([
           { path: 'workspace/kanban', Component: KanbanPage },
           { path: 'workspace/calendar', Component: CalendarPage },
           { path: 'workspace/inbox', Component: InboxPage },
+          { path: 'workspace/files', Component: FilesPage },
+          { path: 'workspace/notifications', Component: NotificationsPage },
+          { path: 'workspace/audit', Component: AuditLogPage },
+          { path: 'billing', Component: BillingPage },
+          { path: 'onboarding', Component: OnboardingPage },
         ],
       },
 

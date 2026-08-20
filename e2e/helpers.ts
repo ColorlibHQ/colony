@@ -12,6 +12,8 @@ export const APP_ROUTES = [
   'profile/basic', 'profile/advanced', 'table',
   'account/center', 'account/settings', 'ai/assistant', 'theme-studio', 'access',
   'workspace/kanban', 'workspace/calendar', 'workspace/inbox',
+  'workspace/files', 'workspace/notifications', 'workspace/audit',
+  'billing', 'onboarding',
   '403', '500', 'this-route-does-not-exist',
 ] as const;
 

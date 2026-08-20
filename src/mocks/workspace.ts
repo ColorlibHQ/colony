@@ -256,3 +256,265 @@ export const messages: Message[] = [
     folder: 'inbox',
   },
 ];
+
+export interface FileNode {
+  id: string;
+  nameKey: string;
+  kind: 'folder' | 'image' | 'doc' | 'code' | 'archive';
+  sizeKb: number;
+  daysAgo: number;
+  owner: 'wei' | 'marta' | 'jonas' | 'li' | 'ana';
+}
+
+export const files: FileNode[] = [
+  {
+    id: 'f1',
+    nameKey: 'brand',
+    kind: 'folder',
+    sizeKb: 0,
+    daysAgo: 2,
+    owner: 'li',
+  },
+  {
+    id: 'f2',
+    nameKey: 'screenshots',
+    kind: 'folder',
+    sizeKb: 0,
+    daysAgo: 4,
+    owner: 'ana',
+  },
+  {
+    id: 'f3',
+    nameKey: 'themeTokens',
+    kind: 'code',
+    sizeKb: 12,
+    daysAgo: 1,
+    owner: 'li',
+  },
+  {
+    id: 'f4',
+    nameKey: 'auditReport',
+    kind: 'doc',
+    sizeKb: 340,
+    daysAgo: 3,
+    owner: 'wei',
+  },
+  {
+    id: 'f5',
+    nameKey: 'heroShot',
+    kind: 'image',
+    sizeKb: 2_480,
+    daysAgo: 5,
+    owner: 'ana',
+  },
+  {
+    id: 'f6',
+    nameKey: 'bundleTrace',
+    kind: 'archive',
+    sizeKb: 15_900,
+    daysAgo: 6,
+    owner: 'jonas',
+  },
+  {
+    id: 'f7',
+    nameKey: 'localeExport',
+    kind: 'code',
+    sizeKb: 88,
+    daysAgo: 8,
+    owner: 'wei',
+  },
+  {
+    id: 'f8',
+    nameKey: 'pressKit',
+    kind: 'archive',
+    sizeKb: 42_100,
+    daysAgo: 14,
+    owner: 'marta',
+  },
+];
+
+export type NotificationKind = 'deploy' | 'mention' | 'security' | 'billing';
+
+export interface Notification {
+  id: string;
+  kind: NotificationKind;
+  titleKey: string;
+  bodyKey: string;
+  minutesAgo: number;
+  read: boolean;
+}
+
+export const notifications: Notification[] = [
+  {
+    id: 'n1',
+    kind: 'deploy',
+    titleKey: 'deployOk',
+    bodyKey: 'deployOk',
+    minutesAgo: 4,
+    read: false,
+  },
+  {
+    id: 'n2',
+    kind: 'mention',
+    titleKey: 'mentioned',
+    bodyKey: 'mentioned',
+    minutesAgo: 22,
+    read: false,
+  },
+  {
+    id: 'n3',
+    kind: 'security',
+    titleKey: 'newDevice',
+    bodyKey: 'newDevice',
+    minutesAgo: 95,
+    read: false,
+  },
+  {
+    id: 'n4',
+    kind: 'billing',
+    titleKey: 'invoiceReady',
+    bodyKey: 'invoiceReady',
+    minutesAgo: 260,
+    read: true,
+  },
+  {
+    id: 'n5',
+    kind: 'deploy',
+    titleKey: 'deployFailed',
+    bodyKey: 'deployFailed',
+    minutesAgo: 640,
+    read: true,
+  },
+  {
+    id: 'n6',
+    kind: 'mention',
+    titleKey: 'reviewAssigned',
+    bodyKey: 'reviewAssigned',
+    minutesAgo: 1_500,
+    read: true,
+  },
+];
+
+export interface AuditEntry {
+  id: string;
+  actor: 'wei' | 'marta' | 'jonas' | 'li' | 'ana';
+  actionKey: string;
+  target: string;
+  ip: string;
+  minutesAgo: number;
+  severity: 'info' | 'warning' | 'critical';
+  before?: string;
+  after?: string;
+}
+
+export const auditLog: AuditEntry[] = [
+  {
+    id: 'a1',
+    actor: 'jonas',
+    actionKey: 'permissionChanged',
+    target: 'role:editor',
+    ip: '10.4.2.18',
+    minutesAgo: 12,
+    severity: 'critical',
+    before: 'orders:update',
+    after: '—',
+  },
+  {
+    id: 'a2',
+    actor: 'marta',
+    actionKey: 'settingUpdated',
+    target: 'billing.currency',
+    ip: '10.4.2.31',
+    minutesAgo: 48,
+    severity: 'warning',
+    before: 'USD',
+    after: 'EUR',
+  },
+  {
+    id: 'a3',
+    actor: 'wei',
+    actionKey: 'userInvited',
+    target: 'nadia@example.com',
+    ip: '10.4.9.7',
+    minutesAgo: 130,
+    severity: 'info',
+  },
+  {
+    id: 'a4',
+    actor: 'li',
+    actionKey: 'apiKeyCreated',
+    target: 'key_live_8f2a',
+    ip: '10.4.2.44',
+    minutesAgo: 300,
+    severity: 'critical',
+  },
+  {
+    id: 'a5',
+    actor: 'ana',
+    actionKey: 'exportRun',
+    target: 'orders.csv',
+    ip: '10.4.7.12',
+    minutesAgo: 520,
+    severity: 'info',
+  },
+  {
+    id: 'a6',
+    actor: 'jonas',
+    actionKey: 'loginFailed',
+    target: 'jonas@example.com',
+    ip: '203.0.113.9',
+    minutesAgo: 900,
+    severity: 'warning',
+  },
+  {
+    id: 'a7',
+    actor: 'marta',
+    actionKey: 'settingUpdated',
+    target: 'security.2fa',
+    ip: '10.4.2.31',
+    minutesAgo: 1_400,
+    severity: 'warning',
+    before: 'off',
+    after: 'required',
+  },
+];
+
+export interface Invoice {
+  id: string;
+  number: string;
+  amount: number;
+  status: 'paid' | 'due' | 'failed';
+  daysAgo: number;
+}
+
+export const invoices: Invoice[] = [
+  { id: 'i1', number: 'INV-2026-0812', amount: 348, status: 'due', daysAgo: 2 },
+  {
+    id: 'i2',
+    number: 'INV-2026-0712',
+    amount: 348,
+    status: 'paid',
+    daysAgo: 33,
+  },
+  {
+    id: 'i3',
+    number: 'INV-2026-0612',
+    amount: 290,
+    status: 'paid',
+    daysAgo: 63,
+  },
+  {
+    id: 'i4',
+    number: 'INV-2026-0512',
+    amount: 290,
+    status: 'failed',
+    daysAgo: 94,
+  },
+  {
+    id: 'i5',
+    number: 'INV-2026-0412',
+    amount: 290,
+    status: 'paid',
+    daysAgo: 124,
+  },
+];

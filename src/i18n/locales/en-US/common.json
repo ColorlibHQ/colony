@@ -64,7 +64,12 @@
     "workspace": "Workspace",
     "kanban": "Kanban",
     "calendar": "Calendar",
-    "inbox": "Inbox"
+    "inbox": "Inbox",
+    "files": "Files",
+    "notifications": "Notifications",
+    "audit": "Audit log",
+    "billing": "Billing",
+    "onboarding": "Getting started"
   },
   "theme": {
     "label": "Theme",
@@ -123,7 +128,12 @@
     "accessDesc": "Roles, permissions, and what each one can actually reach.",
     "kanbanDesc": "Drag cards between columns. Keyboard dragging works too.",
     "calendarDesc": "Month and agenda views over a shared schedule.",
-    "inboxDesc": "A two-pane message list with reading and reply."
+    "inboxDesc": "A two-pane message list with reading and reply.",
+    "filesDesc": "Browse, upload and search stored files.",
+    "notificationsDesc": "Everything that happened, and what you want to hear about.",
+    "auditDesc": "Who changed what, when, and from where.",
+    "billingDesc": "Plan, usage, payment method and invoices.",
+    "onboardingDesc": "Six steps to a workspace that is actually set up."
   },
   "range": {
     "7d": "7 days",
@@ -776,6 +786,150 @@
     "demoFeedback": {
       "subject": "Demo feedback from the weekly call",
       "body": "Two people asked for the command palette by name before we showed it, which is a good sign. The one complaint: the sidebar hides pages the role cannot reach, and someone read that as a bug rather than a permission."
+    }
+  },
+  "files": {
+    "name": "Name",
+    "owner": "Owner",
+    "modified": "Modified",
+    "size": "Size",
+    "upload": "Upload",
+    "search": "Search files",
+    "root": "All files",
+    "storage": "Storage",
+    "recent": "Recently changed",
+    "quota": "{{used}} of {{total}} used"
+  },
+  "file": {
+    "brand": "Brand assets",
+    "screenshots": "Screenshots",
+    "themeTokens": "theme.tokens.ts",
+    "auditReport": "CJK audit report.pdf",
+    "heroShot": "hero-dark.png",
+    "bundleTrace": "bundle-trace.zip",
+    "localeExport": "locales-export.json",
+    "pressKit": "press-kit.zip"
+  },
+  "notifications": {
+    "all": "All",
+    "unread": "Unread",
+    "markAllRead": "Mark all read",
+    "markRead": "Mark read",
+    "allCaughtUp": "You are all caught up"
+  },
+  "notificationKind": {
+    "deploy": "Deployments",
+    "mention": "Mentions",
+    "security": "Security",
+    "billing": "Billing"
+  },
+  "notification": {
+    "deployOk": {
+      "title": "api-gateway v2.4.1 is live",
+      "body": "Deployed to production in 3m 12s. No error-rate change."
+    },
+    "mentioned": {
+      "title": "Marta mentioned you",
+      "body": "\"@you the column resize drifts past row 4,000 — can you look?\""
+    },
+    "newDevice": {
+      "title": "Sign-in from a new device",
+      "body": "Chrome on macOS, 10.4.2.31. If this was not you, revoke the session."
+    },
+    "invoiceReady": {
+      "title": "August invoice is ready",
+      "body": "INV-2026-0812 for $348 is due in 12 days."
+    },
+    "deployFailed": {
+      "title": "web v8.0.2 rolled back",
+      "body": "Health checks failed twice; traffic returned to v8.0.1 automatically."
+    },
+    "reviewAssigned": {
+      "title": "Review assigned to you",
+      "body": "#4821 datatable virtualisation is waiting on your approval."
+    }
+  },
+  "audit": {
+    "when": "When",
+    "actor": "Actor",
+    "action": "Action",
+    "target": "Target",
+    "severity": "Severity",
+    "details": "Details",
+    "before": "Before",
+    "after": "After"
+  },
+  "auditAction": {
+    "permissionChanged": "Permission revoked",
+    "settingUpdated": "Setting updated",
+    "userInvited": "User invited",
+    "apiKeyCreated": "API key created",
+    "exportRun": "Data exported",
+    "loginFailed": "Failed sign-in"
+  },
+  "severity": {
+    "info": "Info",
+    "warning": "Warning",
+    "critical": "Critical"
+  },
+  "billing": {
+    "currentPlan": "Current plan",
+    "nextInvoice": "Next invoice",
+    "usage": "API usage",
+    "usageDetail": "{{used}} of {{total}} calls this month",
+    "seats": "{{count}} seats",
+    "renewsIn": "Renews in {{days}} days",
+    "changePlan": "Change plan",
+    "paymentMethod": "Payment method",
+    "card": "Card",
+    "expires": "Expires",
+    "billingEmail": "Billing email",
+    "updateCard": "Update card",
+    "invoices": "Invoices",
+    "invoice": "Invoice",
+    "issued": "Issued",
+    "retryPayment": "Retry payment",
+    "failedTitle": "Payment for {{number}} failed",
+    "failedDesc": "The card was declined. Update the payment method to avoid interruption."
+  },
+  "invoiceStatus": {
+    "paid": "Paid",
+    "due": "Due",
+    "failed": "Failed"
+  },
+  "onboarding": {
+    "progress": "Progress",
+    "remaining": "{{count}} steps left",
+    "markDone": "Mark done",
+    "undo": "Undo",
+    "go": "Open",
+    "doneTitle": "Your workspace is set up",
+    "doneDesc": "Everything is configured. You can revisit any step from this page."
+  },
+  "onboardingStep": {
+    "account": {
+      "title": "Complete your profile",
+      "desc": "Name, avatar and contact email."
+    },
+    "theme": {
+      "title": "Choose a theme",
+      "desc": "Pick a preset or edit tokens in Theme Studio."
+    },
+    "team": {
+      "title": "Set up roles",
+      "desc": "Decide what each role can reach before inviting anyone."
+    },
+    "data": {
+      "title": "Connect your data",
+      "desc": "Replace the mock API with your own endpoints."
+    },
+    "billing": {
+      "title": "Add a payment method",
+      "desc": "Required before the trial ends."
+    },
+    "invite": {
+      "title": "Invite your team",
+      "desc": "Send the first invitations."
     }
   }
 }

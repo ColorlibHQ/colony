@@ -64,7 +64,12 @@
     "workspace": "工作区",
     "kanban": "看板",
     "calendar": "日历",
-    "inbox": "收件箱"
+    "inbox": "收件箱",
+    "files": "文件",
+    "notifications": "通知",
+    "audit": "审计日志",
+    "billing": "账务",
+    "onboarding": "新手引导"
   },
   "theme": {
     "label": "主题",
@@ -123,7 +128,12 @@
     "accessDesc": "角色、权限，以及每个角色实际能访问的页面。",
     "kanbanDesc": "拖拽卡片在列之间移动，同时支持键盘拖拽。",
     "calendarDesc": "以月视图与日程视图查看共享日程。",
-    "inboxDesc": "双栏消息列表，支持阅读与回复。"
+    "inboxDesc": "双栏消息列表，支持阅读与回复。",
+    "filesDesc": "浏览、上传与搜索已存储的文件。",
+    "notificationsDesc": "所有发生的事，以及你希望收到哪些提醒。",
+    "auditDesc": "谁在什么时间、从哪里修改了什么。",
+    "billingDesc": "套餐、用量、支付方式与账单。",
+    "onboardingDesc": "六个步骤，完成工作区的初始配置。"
   },
   "range": {
     "7d": "近 7 天",
@@ -776,6 +786,150 @@
     "demoFeedback": {
       "subject": "周会演示反馈",
       "body": "有两位同事在我们演示之前就主动问起了命令面板，这是个好信号。唯一的意见是：侧边栏会隐藏当前角色无权访问的页面，有人把这理解成了缺陷而不是权限控制。"
+    }
+  },
+  "files": {
+    "name": "名称",
+    "owner": "所有者",
+    "modified": "修改时间",
+    "size": "大小",
+    "upload": "上传",
+    "search": "搜索文件",
+    "root": "全部文件",
+    "storage": "存储空间",
+    "recent": "最近修改",
+    "quota": "已使用 {{used}} / 共 {{total}}"
+  },
+  "file": {
+    "brand": "品牌素材",
+    "screenshots": "截图",
+    "themeTokens": "theme.tokens.ts",
+    "auditReport": "中文排版走查报告.pdf",
+    "heroShot": "hero-dark.png",
+    "bundleTrace": "bundle-trace.zip",
+    "localeExport": "locales-export.json",
+    "pressKit": "press-kit.zip"
+  },
+  "notifications": {
+    "all": "全部",
+    "unread": "未读",
+    "markAllRead": "全部标为已读",
+    "markRead": "标为已读",
+    "allCaughtUp": "没有未读消息了"
+  },
+  "notificationKind": {
+    "deploy": "部署",
+    "mention": "提及",
+    "security": "安全",
+    "billing": "账务"
+  },
+  "notification": {
+    "deployOk": {
+      "title": "api-gateway v2.4.1 已上线",
+      "body": "3 分 12 秒完成生产环境部署，错误率无变化。"
+    },
+    "mentioned": {
+      "title": "柯玛塔提到了你",
+      "body": "“@你 滚动到 4000 行之后列宽拖拽会偏移，方便看一下吗？”"
+    },
+    "newDevice": {
+      "title": "检测到新设备登录",
+      "body": "macOS 上的 Chrome，10.4.2.31。若非本人操作，请立即注销该会话。"
+    },
+    "invoiceReady": {
+      "title": "8 月账单已生成",
+      "body": "账单 INV-2026-0812 金额 348 元，12 天后到期。"
+    },
+    "deployFailed": {
+      "title": "web v8.0.2 已回滚",
+      "body": "健康检查连续两次失败，流量已自动切回 v8.0.1。"
+    },
+    "reviewAssigned": {
+      "title": "有一个评审指派给你",
+      "body": "#4821 数据表格虚拟滚动正在等待你的审核。"
+    }
+  },
+  "audit": {
+    "when": "时间",
+    "actor": "操作者",
+    "action": "操作",
+    "target": "对象",
+    "severity": "级别",
+    "details": "详情",
+    "before": "变更前",
+    "after": "变更后"
+  },
+  "auditAction": {
+    "permissionChanged": "撤销权限",
+    "settingUpdated": "修改设置",
+    "userInvited": "邀请用户",
+    "apiKeyCreated": "创建 API 密钥",
+    "exportRun": "导出数据",
+    "loginFailed": "登录失败"
+  },
+  "severity": {
+    "info": "提示",
+    "warning": "警告",
+    "critical": "严重"
+  },
+  "billing": {
+    "currentPlan": "当前套餐",
+    "nextInvoice": "下期账单",
+    "usage": "接口用量",
+    "usageDetail": "本月已调用 {{used}} / 共 {{total}} 次",
+    "seats": "{{count}} 个席位",
+    "renewsIn": "{{days}} 天后续订",
+    "changePlan": "变更套餐",
+    "paymentMethod": "支付方式",
+    "card": "银行卡",
+    "expires": "有效期至",
+    "billingEmail": "账单邮箱",
+    "updateCard": "更换银行卡",
+    "invoices": "账单记录",
+    "invoice": "账单号",
+    "issued": "出账时间",
+    "retryPayment": "重新支付",
+    "failedTitle": "账单 {{number}} 支付失败",
+    "failedDesc": "银行卡被拒付，请更新支付方式以免服务中断。"
+  },
+  "invoiceStatus": {
+    "paid": "已支付",
+    "due": "待支付",
+    "failed": "支付失败"
+  },
+  "onboarding": {
+    "progress": "完成进度",
+    "remaining": "还剩 {{count}} 步",
+    "markDone": "标记完成",
+    "undo": "撤销",
+    "go": "前往",
+    "doneTitle": "工作区已配置完成",
+    "doneDesc": "所有配置均已完成，随时可以从本页回顾任意步骤。"
+  },
+  "onboardingStep": {
+    "account": {
+      "title": "完善个人资料",
+      "desc": "姓名、头像与联系邮箱。"
+    },
+    "theme": {
+      "title": "选择主题",
+      "desc": "挑选预设配色，或在主题工作室中调整 Token。"
+    },
+    "team": {
+      "title": "配置角色权限",
+      "desc": "在邀请成员之前，先确定每个角色的可见范围。"
+    },
+    "data": {
+      "title": "接入你的数据",
+      "desc": "用真实接口替换 Mock 数据。"
+    },
+    "billing": {
+      "title": "添加支付方式",
+      "desc": "试用期结束前需要完成。"
+    },
+    "invite": {
+      "title": "邀请团队成员",
+      "desc": "发出第一批邀请。"
     }
   }
 }

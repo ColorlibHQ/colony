@@ -71,6 +71,9 @@ export const NAVIGATION: NavNode[] = [
       { key: '/workspace/kanban', labelKey: 'nav.kanban' },
       { key: '/workspace/calendar', labelKey: 'nav.calendar' },
       { key: '/workspace/inbox', labelKey: 'nav.inbox' },
+      { key: '/workspace/files', labelKey: 'nav.files' },
+      { key: '/workspace/notifications', labelKey: 'nav.notifications' },
+      { key: '/workspace/audit', labelKey: 'nav.audit' },
     ],
   },
   {
@@ -93,6 +96,8 @@ export const NAVIGATION: NavNode[] = [
   },
   { key: '/ai/assistant', labelKey: 'nav.assistant', icon: 'robot' },
   { key: '/theme-studio', labelKey: 'nav.themeStudio', icon: 'palette' },
+  { key: '/billing', labelKey: 'nav.billing', icon: 'billing' },
+  { key: '/onboarding', labelKey: 'nav.onboarding', icon: 'rocket' },
   { key: '/access', labelKey: 'nav.access', icon: 'lock' },
   {
     key: '/exception',

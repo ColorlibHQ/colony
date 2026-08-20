@@ -35,7 +35,8 @@ describe('locale parity', () => {
     /** Technical acronyms are written in Latin in Chinese copy too (CPU, API). */
     const acronym = /^[A-Z][A-Z0-9]{1,5}$/;
     /** Filenames and identifiers are code, not copy. */
-    const identifier = /^[\w.-]+\.(ts|tsx|js|json|css|md|zip|csv)$/;
+    const identifier =
+      /^[\w.-]+\.(ts|tsx|js|mjs|json|css|md|zip|csv|png|jpe?g|svg|webp|avif|pdf)$/;
     const walk = (obj: Json, path = ''): void => {
       for (const [k, v] of Object.entries(obj)) {
         if (typeof v === 'object') {
