@@ -45,7 +45,10 @@
     "basicForm": "基础表单",
     "cardList": "卡片列表",
     "exceptions": "异常页",
-    "auth": "登录注册"
+    "auth": "登录注册",
+    "stepForm": "分步表单",
+    "searchList": "搜索列表",
+    "profileBasic": "订单详情"
   },
   "theme": {
     "label": "主题",
@@ -90,7 +93,11 @@
     "feedbackDesc": "警告提示、浮层、加载与空状态。",
     "basicFormDesc": "基于 React Hook Form 与 Zod 的 Schema 优先校验。",
     "cardListDesc": "支持筛选与排序的集合视图，可在网格与列表间切换。",
-    "ordersDesc": "共 240 条订单，由服务端分页与筛选。"
+    "ordersDesc": "共 240 条订单，由服务端分页与筛选。",
+    "stepFormDesc": "三步完成转账，逐步校验。",
+    "searchListDesc": "在混合内容中搜索、切换页签与排序。",
+    "profileBasicDesc": "单条记录及其明细与流转记录。",
+    "settingsDesc": "个人资料、外观、通知与安全设置。"
   },
   "range": {
     "7d": "近 7 天",
@@ -364,7 +371,15 @@
     "budget": "预算",
     "notify": "变更时邮件通知我",
     "dropFiles": "将文件拖到此处，或点击上传",
-    "password": "密码"
+    "password": "密码",
+    "payFrom": "付款账户",
+    "payTo": "收款人",
+    "amount": "转账金额",
+    "method": "支付方式",
+    "reviewNotice": "请核对以下信息，转账提交后无法撤销。",
+    "transferDone": "转账已提交",
+    "transferDoneDesc": "{{amount}} 元正在转入 {{to}} 的账户。",
+    "newTransfer": "再转一笔"
   },
   "role": {
     "owner": "所有者",
@@ -388,7 +403,9 @@
     "notesMax": "备注请控制在 280 字以内",
     "fixErrors": "请修正标红的字段后重试",
     "passwordMin": "密码至少 8 位",
-    "mustAccept": "请先同意服务条款"
+    "mustAccept": "请先同意服务条款",
+    "accountMin": "请输入有效的账号",
+    "amountMin": "金额至少为 1"
   },
   "list": {
     "searchPlaceholder": "搜索项目",
@@ -398,7 +415,17 @@
     "list": "列表",
     "noMatches": "没有匹配的项目",
     "newProject": "新建项目",
-    "membersCount": "{{count}} 位成员"
+    "membersCount": "{{count}} 位成员",
+    "searchArticles": "搜索文章、项目与应用",
+    "tabArticles": "文章",
+    "tabProjects": "项目",
+    "tabApplications": "应用",
+    "sortPopular": "最多点赞",
+    "sortRecent": "最新发布",
+    "stars": "收藏",
+    "likes": "点赞",
+    "comments": "评论",
+    "views": "浏览"
   },
   "listStatus": {
     "early": "起步阶段",
@@ -444,6 +471,79 @@
       "weak": "密码强度：弱",
       "fair": "密码强度：中",
       "strong": "密码强度：强"
+    }
+  },
+  "method": {
+    "bank": "银行转账",
+    "card": "储蓄卡",
+    "wallet": "钱包余额"
+  },
+  "article": {
+    "tokens": "用 Ant Design v6 Design Token 做设计",
+    "cjk": "为什么你的中后台在中文下不好看",
+    "datatable": "不依赖 ProComponents 实现数据表格",
+    "bundle": "删掉一个 import，包体积减半",
+    "msw": "用 MSW 统一开发、测试与演示的 Mock 层",
+    "darkmode": "经得起主题切换的深色模式",
+    "vite8": "Vite 8 与 Rolldown：到底哪里变快了"
+  },
+  "articleBody": {
+    "tokens": "v6 默认启用 CSS 变量，让可视化主题编辑器从设想变成了可落地的方案。",
+    "cjk": "拉丁文的行高会挤压汉字，负字距更是雪上加霜。两套并行的字号体系可以解决这个问题。",
+    "datatable": "antd 的 Table 已经负责了渲染，缺的是工具栏、列控制与安全的导出能力。",
+    "bundle": "MSW 是 Mock 服务，本就不该出现在生产构建里，而它的依赖树比看上去更大。",
+    "msw": "一套 handlers 同时服务开发服务器、测试运行器与线上演示，三者不会再各自漂移。",
+    "darkmode": "是三种状态而非两种：显式浅色、显式深色，以及最常见的未标记的跟随系统。",
+    "vite8": "Rolldown 通过 Oxc 完成 React 转换，因此 SWC 插件反而成了较慢的那条路径。"
+  },
+  "tag": {
+    "design": "设计",
+    "antd": "Ant Design",
+    "typography": "排版",
+    "i18n": "国际化",
+    "react": "React",
+    "performance": "性能",
+    "testing": "测试"
+  },
+  "profile": {
+    "orderDetails": "订单信息",
+    "lineItems": "商品明细",
+    "history": "流转记录",
+    "placed": "订单创建",
+    "paid": "支付成功",
+    "packed": "已打包",
+    "shipped": "已发货",
+    "pending": "待处理"
+  },
+  "settings": {
+    "profile": "个人资料",
+    "appearance": "外观",
+    "notifications": "通知",
+    "security": "安全",
+    "avatar": "头像",
+    "avatarHint": "支持 PNG 或 JPG，建议不小于 200×200。",
+    "change": "修改",
+    "bio": "个人简介",
+    "themeHint": "“跟随系统”将使用操作系统的外观设置。",
+    "densityHint": "“极简”模式可在一屏内展示更多内容。",
+    "password": "登录密码",
+    "passwordHint": "上次修改于 4 个月前。",
+    "twoFactor": "两步验证",
+    "twoFactorHint": "登录时需要输入身份验证器中的动态码。",
+    "sessions": "登录设备",
+    "sessionsHint": "当前有 3 台设备处于登录状态。",
+    "revokeAll": "退出全部设备",
+    "notif": {
+      "deploys": "部署通知",
+      "mentions": "@ 我的消息",
+      "digest": "每周摘要",
+      "security": "安全提醒"
+    },
+    "notifHint": {
+      "deploys": "部署完成或失败时通知。",
+      "mentions": "有人在评论中提到你时通知。",
+      "digest": "每周一发送上周动态汇总。",
+      "security": "检测到新设备登录时通知。"
     }
   }
 }

@@ -37,6 +37,21 @@ describe('locale parity', () => {
   it('does not leave English strings untranslated in zh-CN', () => {
     // Locale display names are intentionally endonyms, so exempt them.
     const exempt = new Set(['locale.en-US', 'locale.zh-CN']);
+    /**
+     * Proper nouns stay in Latin script in Chinese copy — "Ant Design" and
+     * "React" are what a Chinese developer actually writes and searches for.
+     * Translating them would be wrong, so they are allowed to match, but the
+     * list is explicit: anything NOT named here must differ between locales.
+     */
+    const brands = new Set([
+      'Ant Design',
+      'React',
+      'GitHub',
+      'Google',
+      'Vite',
+      'TypeScript',
+      'MSW',
+    ]);
     const get = (o: Json, p: string): string =>
       p
         .split('.')
@@ -46,6 +61,7 @@ describe('locale parity', () => {
       if (exempt.has(key)) continue;
       const en = get(enUS, key);
       const zh = get(zhCN, key);
+      if (brands.has(en)) continue;
       if (/^[A-Za-z ]+$/.test(en) && en.length > 3) {
         expect(zh, `${key} still reads as English`).not.toBe(en);
       }

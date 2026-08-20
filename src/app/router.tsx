@@ -12,6 +12,10 @@ const CardsPage = lazy(() => import('@/pages/components/Cards'));
 const FeedbackPage = lazy(() => import('@/pages/components/Feedback'));
 const BasicFormPage = lazy(() => import('@/pages/form/BasicForm'));
 const CardListPage = lazy(() => import('@/pages/list/CardList'));
+const SearchListPage = lazy(() => import('@/pages/list/SearchList'));
+const StepFormPage = lazy(() => import('@/pages/form/StepForm'));
+const ProfileBasicPage = lazy(() => import('@/pages/profile/Basic'));
+const AccountSettingsPage = lazy(() => import('@/pages/account/Settings'));
 const OrdersPage = lazy(() => import('@/pages/table/Orders'));
 const LoginPage = lazy(() => import('@/pages/auth/Login'));
 const RegisterPage = lazy(() => import('@/pages/auth/Register'));
@@ -41,7 +45,11 @@ export const router = createBrowserRouter([
       { path: 'components/cards', Component: CardsPage },
       { path: 'components/feedback', Component: FeedbackPage },
       { path: 'form/basic', Component: BasicFormPage },
+      { path: 'form/step', Component: StepFormPage },
       { path: 'list/card', Component: CardListPage },
+      { path: 'list/search', Component: SearchListPage },
+      { path: 'profile/basic', Component: ProfileBasicPage },
+      { path: 'account/settings', Component: AccountSettingsPage },
       { path: 'table', Component: OrdersPage },
       { path: '403', Component: ForbiddenPage },
       { path: '500', Component: ServerErrorPage },

@@ -45,7 +45,10 @@
     "basicForm": "Basic form",
     "cardList": "Card list",
     "exceptions": "Exceptions",
-    "auth": "Authentication"
+    "auth": "Authentication",
+    "stepForm": "Step form",
+    "searchList": "Search list",
+    "profileBasic": "Order detail"
   },
   "theme": {
     "label": "Theme",
@@ -90,7 +93,11 @@
     "feedbackDesc": "Alerts, overlays, loading and empty states.",
     "basicFormDesc": "Schema-first validation with React Hook Form and Zod.",
     "cardListDesc": "A filterable, sortable collection with grid and list views.",
-    "ordersDesc": "240 orders, paged and filtered on the server."
+    "ordersDesc": "240 orders, paged and filtered on the server.",
+    "stepFormDesc": "A three-step transfer, validated one step at a time.",
+    "searchListDesc": "Search, tab and sort across a mixed content set.",
+    "profileBasicDesc": "A single record with its line items and history.",
+    "settingsDesc": "Profile, appearance, notifications and security."
   },
   "range": {
     "7d": "7 days",
@@ -364,7 +371,15 @@
     "budget": "Budget",
     "notify": "Email me on changes",
     "dropFiles": "Drop a file here or click to browse",
-    "password": "Password"
+    "password": "Password",
+    "payFrom": "Pay from",
+    "payTo": "Pay to",
+    "amount": "Amount",
+    "method": "Method",
+    "reviewNotice": "Check the details below. Transfers cannot be reversed once submitted.",
+    "transferDone": "Transfer submitted",
+    "transferDoneDesc": "${{amount}} is on its way to {{to}}.",
+    "newTransfer": "Make another transfer"
   },
   "role": {
     "owner": "Owner",
@@ -388,7 +403,9 @@
     "notesMax": "Keep notes under 280 characters",
     "fixErrors": "Fix the highlighted fields and try again",
     "passwordMin": "Use at least 8 characters",
-    "mustAccept": "You must accept the terms to continue"
+    "mustAccept": "You must accept the terms to continue",
+    "accountMin": "Enter a valid account number",
+    "amountMin": "Amount must be at least 1"
   },
   "list": {
     "searchPlaceholder": "Search projects",
@@ -398,7 +415,17 @@
     "list": "List",
     "noMatches": "No projects match that search",
     "newProject": "New project",
-    "membersCount": "{{count}} members"
+    "membersCount": "{{count}} members",
+    "searchArticles": "Search articles, projects and applications",
+    "tabArticles": "Articles",
+    "tabProjects": "Projects",
+    "tabApplications": "Applications",
+    "sortPopular": "Most liked",
+    "sortRecent": "Most recent",
+    "stars": "stars",
+    "likes": "likes",
+    "comments": "comments",
+    "views": "views"
   },
   "listStatus": {
     "early": "Early stage",
@@ -444,6 +471,79 @@
       "weak": "Weak password",
       "fair": "Fair password",
       "strong": "Strong password"
+    }
+  },
+  "method": {
+    "bank": "Bank transfer",
+    "card": "Debit card",
+    "wallet": "Wallet balance"
+  },
+  "article": {
+    "tokens": "Designing with Ant Design v6 tokens",
+    "cjk": "Why your dashboard looks wrong in Chinese",
+    "datatable": "Building a data table without ProComponents",
+    "bundle": "We halved our bundle by deleting one import",
+    "msw": "MSW as the single mock layer for dev, tests and demos",
+    "darkmode": "Dark mode that survives a theme switch",
+    "vite8": "Vite 8 and Rolldown: what actually got faster"
+  },
+  "articleBody": {
+    "tokens": "CSS variables land by default in v6, which finally makes a live theme editor practical rather than theoretical.",
+    "cjk": "Latin line-heights crush 汉字, and negative tracking makes them worse. Two parallel type scales fix it.",
+    "datatable": "antd's Table already owns rendering. What it lacks is a toolbar, column control and a safe export.",
+    "bundle": "MSW is a mock server. It has no business in a production build, and its dependency tree is larger than it looks.",
+    "msw": "One set of handlers serving the dev server, the test runner and the public demo keeps them from drifting apart.",
+    "darkmode": "Three states, not two: explicit light, explicit dark, and the far more common unstamped system default.",
+    "vite8": "Rolldown does the React transform through Oxc, so the SWC plugin is now the slower path."
+  },
+  "tag": {
+    "design": "Design",
+    "antd": "Ant Design",
+    "typography": "Typography",
+    "i18n": "i18n",
+    "react": "React",
+    "performance": "Performance",
+    "testing": "Testing"
+  },
+  "profile": {
+    "orderDetails": "Order details",
+    "lineItems": "Line items",
+    "history": "History",
+    "placed": "Order placed",
+    "paid": "Payment received",
+    "packed": "Packed",
+    "shipped": "Shipped",
+    "pending": "Pending"
+  },
+  "settings": {
+    "profile": "Profile",
+    "appearance": "Appearance",
+    "notifications": "Notifications",
+    "security": "Security",
+    "avatar": "Avatar",
+    "avatarHint": "PNG or JPG, at least 200×200.",
+    "change": "Change",
+    "bio": "Bio",
+    "themeHint": "System follows your operating system setting.",
+    "densityHint": "Condensed fits more rows on screen.",
+    "password": "Password",
+    "passwordHint": "Last changed 4 months ago.",
+    "twoFactor": "Two-factor authentication",
+    "twoFactorHint": "Require a code from your authenticator app at sign-in.",
+    "sessions": "Active sessions",
+    "sessionsHint": "You are signed in on 3 devices.",
+    "revokeAll": "Sign out everywhere",
+    "notif": {
+      "deploys": "Deployments",
+      "mentions": "Mentions",
+      "digest": "Weekly digest",
+      "security": "Security alerts"
+    },
+    "notifHint": {
+      "deploys": "When a deploy finishes or fails.",
+      "mentions": "When someone mentions you in a comment.",
+      "digest": "A Monday summary of the week's activity.",
+      "security": "Sign-ins from a new device."
     }
   }
 }
