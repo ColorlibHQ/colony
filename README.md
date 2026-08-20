@@ -48,7 +48,7 @@ has had no stable release in 13 months. Ant Design Pro works around this by pinn
 | Charts | Recharts 3 |
 | Mocking | MSW 2 |
 | i18n | i18next — `en-US` and `zh-CN`, both first-class |
-| Tests | Vitest 4 · Playwright |
+| Tests | Vitest 4 (23) · Playwright (72) |
 
 ## Quick start
 

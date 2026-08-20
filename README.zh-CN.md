@@ -48,7 +48,7 @@ Ant Design Pro 是官方中后台方案，本身质量很好。但使用它就�
 | 图表 | Recharts 3 |
 | 数据模拟 | MSW 2 |
 | 国际化 | i18next —— `zh-CN` 与 `en-US` 同为一等公民 |
-| 测试 | Vitest 4 · Playwright |
+| 测试 | Vitest 4（23 项）· Playwright（72 项）|
 
 ## 快速开始
 

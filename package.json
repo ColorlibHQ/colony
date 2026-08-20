@@ -39,7 +39,8 @@
     "msw:init": "msw init public --save",
     "build:demo": "tsc -b && cross-env VITE_ENABLE_MSW=true vite build",
     "preview:demo": "pnpm build:demo && vite preview",
-    "size": "node scripts/bundle-budget.mjs"
+    "size": "node scripts/bundle-budget.mjs",
+    "test:e2e:ui": "playwright test --ui"
   },
   "dependencies": {
     "@ant-design/icons": "^6.3.2",

@@ -8,6 +8,30 @@
     <meta name="description" content="Colony — a free, bilingual React admin dashboard built on Ant Design v6, Vite 8 and TypeScript." />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <title>Colony</title>
+    <script>
+      // Runs before first paint. Zustand rehydrates from localStorage after
+      // React mounts, so without this the document renders once in the default
+      // theme and then snaps to the stored one.
+      (function () {
+        try {
+          var root = document.documentElement;
+          var raw = localStorage.getItem('colony.preferences');
+          if (raw) {
+            var s = (JSON.parse(raw) || {}).state || {};
+            // 'system' deliberately leaves data-theme unset so the
+            // prefers-color-scheme media query stays authoritative.
+            if (s.colorMode === 'light' || s.colorMode === 'dark') {
+              root.setAttribute('data-theme', s.colorMode);
+            }
+            if (s.density) root.setAttribute('data-density', s.density);
+          }
+          var locale = localStorage.getItem('colony.locale');
+          if (locale) root.lang = locale;
+        } catch (e) {
+          // Private mode or blocked storage — fall back to defaults.
+        }
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>

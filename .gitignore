@@ -16,3 +16,6 @@ test-results/
 .idea/
 .vscode/*
 !.vscode/extensions.json
+/playwright-report/
+/test-results/
+/blob-report/
