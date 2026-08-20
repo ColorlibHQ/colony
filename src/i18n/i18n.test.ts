@@ -23,6 +23,36 @@ describe('locale parity', () => {
     expect(zh).toEqual(en);
   });
 
+  it('has no Latin-only values left in zh-CN', () => {
+    /**
+     * Differing from the English is not sufficient. `profile.technical` once
+     * held "technical" against English "Technical contact" — different, and
+     * still plainly untranslated. Chinese copy should contain Han characters
+     * unless it is a brand name or a placeholder token.
+     */
+    const brands =
+      /^(Ant Design|React|GitHub|Google|Vite|TypeScript|MSW|English|简体中文)$/;
+    /** Technical acronyms are written in Latin in Chinese copy too (CPU, API). */
+    const acronym = /^[A-Z][A-Z0-9]{1,5}$/;
+    const walk = (obj: Json, path = ''): void => {
+      for (const [k, v] of Object.entries(obj)) {
+        if (typeof v === 'object') {
+          walk(v, `${path}${k}.`);
+          continue;
+        }
+        const stripped = v.replaceAll(/\{\{\w+\}\}/g, '').trim();
+        if (!stripped || brands.test(stripped) || acronym.test(stripped))
+          continue;
+        if (/[A-Za-z]/.test(stripped) && !/[\u4e00-\u9fff]/.test(stripped)) {
+          expect
+            .soft(stripped, `zh-CN ${path}${k} looks untranslated`)
+            .toMatch(/[\u4e00-\u9fff]/);
+        }
+      }
+    };
+    walk(zhCN);
+  });
+
   it('has no empty translation values', () => {
     const walk = (obj: Json, path = ''): void => {
       for (const [k, v] of Object.entries(obj)) {

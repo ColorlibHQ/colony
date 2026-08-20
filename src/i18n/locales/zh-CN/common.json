@@ -48,7 +48,12 @@
     "auth": "登录注册",
     "stepForm": "分步表单",
     "searchList": "搜索列表",
-    "profileBasic": "订单详情"
+    "profileBasic": "订单详情",
+    "advancedForm": "高级表单",
+    "basicList": "标准列表",
+    "profileAdvanced": "客户详情",
+    "accountCenter": "个人中心",
+    "assistant": "AI 助手"
   },
   "theme": {
     "label": "主题",
@@ -97,7 +102,12 @@
     "stepFormDesc": "三步完成转账，逐步校验。",
     "searchListDesc": "在混合内容中搜索、切换页签与排序。",
     "profileBasicDesc": "单条记录及其明细与流转记录。",
-    "settingsDesc": "个人资料、外观、通知与安全设置。"
+    "settingsDesc": "个人资料、外观、通知与安全设置。",
+    "advancedFormDesc": "分区块的订单表单，商品明细可编辑并实时汇总。",
+    "basicListDesc": "带数量统计与行内操作的可筛选列表。",
+    "profileAdvancedDesc": "客户账号及其订单、动态与联系人。",
+    "accountCenterDesc": "你的资料、已发布内容与最近动态。",
+    "assistantDesc": "支持流式输出的对话界面，接口可替换。"
   },
   "range": {
     "7d": "近 7 天",
@@ -379,7 +389,19 @@
     "reviewNotice": "请核对以下信息，转账提交后无法撤销。",
     "transferDone": "转账已提交",
     "transferDoneDesc": "{{amount}} 元正在转入 {{to}} 的账户。",
-    "newTransfer": "再转一笔"
+    "newTransfer": "再转一笔",
+    "orderTitle": "订单名称",
+    "orderTitlePlaceholder": "例如：三季度硬件更新",
+    "owner": "负责人",
+    "region": "区域",
+    "deliverBy": "交付日期",
+    "unitPrice": "单价",
+    "lineTotal": "小计",
+    "total": "合计",
+    "addLine": "添加一行",
+    "lastLine": "订单至少需要保留一行明细",
+    "lineCount": "共 {{count}} 行明细",
+    "lineItems": "商品明细"
   },
   "role": {
     "owner": "所有者",
@@ -405,7 +427,9 @@
     "passwordMin": "密码至少 8 位",
     "mustAccept": "请先同意服务条款",
     "accountMin": "请输入有效的账号",
-    "amountMin": "金额至少为 1"
+    "amountMin": "金额至少为 1",
+    "qtyMin": "数量至少为 1",
+    "linesMin": "请至少添加一行明细"
   },
   "list": {
     "searchPlaceholder": "搜索项目",
@@ -425,7 +449,10 @@
     "stars": "收藏",
     "likes": "点赞",
     "comments": "评论",
-    "views": "浏览"
+    "views": "浏览",
+    "filterAll": "全部",
+    "filterActive": "进行中",
+    "filterDone": "已完成"
   },
   "listStatus": {
     "early": "起步阶段",
@@ -471,7 +498,11 @@
       "weak": "密码强度：弱",
       "fair": "密码强度：中",
       "strong": "密码强度：强"
-    }
+    },
+    "checkInbox": "请查收邮件",
+    "checkInboxDesc": "我们已将确认链接发送至",
+    "resendEmail": "重新发送",
+    "backToSignIn": "返回登录"
   },
   "method": {
     "bank": "银行转账",
@@ -513,7 +544,23 @@
     "paid": "支付成功",
     "packed": "已打包",
     "shipped": "已发货",
-    "pending": "待处理"
+    "pending": "待处理",
+    "accountName": "客户名称",
+    "accountOwner": "负责人",
+    "since": "合作起始",
+    "lifetimeValue": "累计成交额",
+    "openTickets": "待处理工单",
+    "health": "健康度",
+    "tabOrders": "订单",
+    "tabActivity": "动态",
+    "tabContacts": "联系人",
+    "renewed": "续签了年度合同",
+    "ticketOpened": "提交了一个工单",
+    "planChanged": "变更了计费方案",
+    "onboarded": "完成了初始配置",
+    "primary": "主要联系人",
+    "billing": "账务联系人",
+    "technical": "技术联系人"
   },
   "settings": {
     "profile": "个人资料",
@@ -544,6 +591,31 @@
       "mentions": "有人在评论中提到你时通知。",
       "digest": "每周一发送上周动态汇总。",
       "security": "检测到新设备登录时通知。"
+    }
+  },
+  "region": {
+    "emea": "欧洲及中东",
+    "amer": "美洲",
+    "apac": "亚太"
+  },
+  "account": {
+    "skills": "技能标签",
+    "profileStrength": "资料完整度",
+    "profileStrengthHint": "补充个人简介与所在地即可达到 100%。",
+    "tabArticles": "文章",
+    "tabProjects": "项目",
+    "tabActivity": "动态"
+  },
+  "assistant": {
+    "conversation": "对话记录",
+    "empty": "随时提问。当前为演示环境，仅流式返回固定回复；替换 provider 接入真实后端后，本页面无需改动。",
+    "placeholder": "输入消息。回车发送，Shift+回车换行。",
+    "send": "发送",
+    "stop": "停止",
+    "suggestion": {
+      "summarise": "总结上周的订单情况",
+      "draft": "起草一份发版说明",
+      "explain": "解释这个报错"
     }
   }
 }

@@ -4,6 +4,7 @@ import {
   DashboardOutlined,
   FormOutlined,
   ProfileOutlined,
+  RobotOutlined,
   SettingOutlined,
   TableOutlined,
   WarningOutlined,
@@ -66,6 +67,7 @@ export function AppSider() {
         children: [
           { key: '/form/basic', label: t('nav.basicForm') },
           { key: '/form/step', label: t('nav.stepForm') },
+          { key: '/form/advanced', label: t('nav.advancedForm') },
         ],
       },
       {
@@ -73,6 +75,7 @@ export function AppSider() {
         icon: <UnorderedListOutlined />,
         label: t('nav.lists'),
         children: [
+          { key: '/list/basic', label: t('nav.basicList') },
           { key: '/list/card', label: t('nav.cardList') },
           { key: '/list/search', label: t('nav.searchList') },
         ],
@@ -82,12 +85,24 @@ export function AppSider() {
         key: '/profile',
         icon: <ProfileOutlined />,
         label: t('nav.profile'),
-        children: [{ key: '/profile/basic', label: t('nav.profileBasic') }],
+        children: [
+          { key: '/profile/basic', label: t('nav.profileBasic') },
+          { key: '/profile/advanced', label: t('nav.profileAdvanced') },
+        ],
       },
       {
-        key: '/account/settings',
+        key: '/account',
         icon: <SettingOutlined />,
-        label: t('nav.settings'),
+        label: t('nav.account'),
+        children: [
+          { key: '/account/center', label: t('nav.accountCenter') },
+          { key: '/account/settings', label: t('nav.settings') },
+        ],
+      },
+      {
+        key: '/ai/assistant',
+        icon: <RobotOutlined />,
+        label: t('nav.assistant'),
       },
       {
         key: '/exception',
@@ -124,10 +139,16 @@ export function AppSider() {
       '/components/feedback',
       '/form/basic',
       '/form/step',
+      '/form/advanced',
+      '/list/basic',
       '/list/card',
       '/list/search',
       '/profile/basic',
+      '/profile/advanced',
+      '/account/center',
+      '/account/center',
       '/account/settings',
+      '/ai/assistant',
       '/table',
       '/403',
       '/500',

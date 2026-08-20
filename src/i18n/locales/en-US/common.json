@@ -48,7 +48,12 @@
     "auth": "Authentication",
     "stepForm": "Step form",
     "searchList": "Search list",
-    "profileBasic": "Order detail"
+    "profileBasic": "Order detail",
+    "advancedForm": "Advanced form",
+    "basicList": "Basic list",
+    "profileAdvanced": "Account detail",
+    "accountCenter": "Account centre",
+    "assistant": "AI assistant"
   },
   "theme": {
     "label": "Theme",
@@ -97,7 +102,12 @@
     "stepFormDesc": "A three-step transfer, validated one step at a time.",
     "searchListDesc": "Search, tab and sort across a mixed content set.",
     "profileBasicDesc": "A single record with its line items and history.",
-    "settingsDesc": "Profile, appearance, notifications and security."
+    "settingsDesc": "Profile, appearance, notifications and security.",
+    "advancedFormDesc": "A multi-section order with editable line items and a running total.",
+    "basicListDesc": "A filterable list with counts and per-row actions.",
+    "profileAdvancedDesc": "A customer account with orders, activity and contacts.",
+    "accountCenterDesc": "Your profile, published work and recent activity.",
+    "assistantDesc": "A streaming chat surface with a pluggable provider."
   },
   "range": {
     "7d": "7 days",
@@ -379,7 +389,19 @@
     "reviewNotice": "Check the details below. Transfers cannot be reversed once submitted.",
     "transferDone": "Transfer submitted",
     "transferDoneDesc": "${{amount}} is on its way to {{to}}.",
-    "newTransfer": "Make another transfer"
+    "newTransfer": "Make another transfer",
+    "orderTitle": "Order title",
+    "orderTitlePlaceholder": "e.g. Q3 hardware refresh",
+    "owner": "Owner",
+    "region": "Region",
+    "deliverBy": "Deliver by",
+    "unitPrice": "Unit price",
+    "lineTotal": "Line total",
+    "total": "Total",
+    "addLine": "Add line",
+    "lastLine": "An order needs at least one line",
+    "lineCount": "{{count}} line items",
+    "lineItems": "Line items"
   },
   "role": {
     "owner": "Owner",
@@ -405,7 +427,9 @@
     "passwordMin": "Use at least 8 characters",
     "mustAccept": "You must accept the terms to continue",
     "accountMin": "Enter a valid account number",
-    "amountMin": "Amount must be at least 1"
+    "amountMin": "Amount must be at least 1",
+    "qtyMin": "Quantity must be at least 1",
+    "linesMin": "Add at least one line item"
   },
   "list": {
     "searchPlaceholder": "Search projects",
@@ -425,7 +449,10 @@
     "stars": "stars",
     "likes": "likes",
     "comments": "comments",
-    "views": "views"
+    "views": "views",
+    "filterAll": "All",
+    "filterActive": "Active",
+    "filterDone": "Done"
   },
   "listStatus": {
     "early": "Early stage",
@@ -471,7 +498,11 @@
       "weak": "Weak password",
       "fair": "Fair password",
       "strong": "Strong password"
-    }
+    },
+    "checkInbox": "Check your inbox",
+    "checkInboxDesc": "We sent a confirmation link to",
+    "resendEmail": "Resend email",
+    "backToSignIn": "Back to sign in"
   },
   "method": {
     "bank": "Bank transfer",
@@ -513,7 +544,23 @@
     "paid": "Payment received",
     "packed": "Packed",
     "shipped": "Shipped",
-    "pending": "Pending"
+    "pending": "Pending",
+    "accountName": "Account",
+    "accountOwner": "Owner",
+    "since": "Customer since",
+    "lifetimeValue": "Lifetime value",
+    "openTickets": "Open tickets",
+    "health": "Health score",
+    "tabOrders": "Orders",
+    "tabActivity": "Activity",
+    "tabContacts": "Contacts",
+    "renewed": "renewed the annual contract",
+    "ticketOpened": "opened a support ticket",
+    "planChanged": "changed the billing plan",
+    "onboarded": "completed onboarding",
+    "primary": "Primary contact",
+    "billing": "Billing contact",
+    "technical": "Technical contact"
   },
   "settings": {
     "profile": "Profile",
@@ -544,6 +591,31 @@
       "mentions": "When someone mentions you in a comment.",
       "digest": "A Monday summary of the week's activity.",
       "security": "Sign-ins from a new device."
+    }
+  },
+  "region": {
+    "emea": "EMEA",
+    "amer": "Americas",
+    "apac": "APAC"
+  },
+  "account": {
+    "skills": "Skills",
+    "profileStrength": "Profile strength",
+    "profileStrengthHint": "Add a bio and a location to reach 100%.",
+    "tabArticles": "Articles",
+    "tabProjects": "Projects",
+    "tabActivity": "Activity"
+  },
+  "assistant": {
+    "conversation": "Conversation",
+    "empty": "Ask anything. This demo streams a fixed reply — swap the provider for your backend and the screen is unchanged.",
+    "placeholder": "Send a message. Enter to send, Shift+Enter for a new line.",
+    "send": "Send",
+    "stop": "Stop",
+    "suggestion": {
+      "summarise": "Summarise last week's orders",
+      "draft": "Draft a release note",
+      "explain": "Explain this error"
     }
   }
 }

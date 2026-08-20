@@ -16,6 +16,12 @@ const SearchListPage = lazy(() => import('@/pages/list/SearchList'));
 const StepFormPage = lazy(() => import('@/pages/form/StepForm'));
 const ProfileBasicPage = lazy(() => import('@/pages/profile/Basic'));
 const AccountSettingsPage = lazy(() => import('@/pages/account/Settings'));
+const AccountCenterPage = lazy(() => import('@/pages/account/Center'));
+const AdvancedFormPage = lazy(() => import('@/pages/form/AdvancedForm'));
+const BasicListPage = lazy(() => import('@/pages/list/BasicList'));
+const ProfileAdvancedPage = lazy(() => import('@/pages/profile/Advanced'));
+const AssistantPage = lazy(() => import('@/pages/ai/Assistant'));
+const RegisterResultPage = lazy(() => import('@/pages/auth/RegisterResult'));
 const OrdersPage = lazy(() => import('@/pages/table/Orders'));
 const LoginPage = lazy(() => import('@/pages/auth/Login'));
 const RegisterPage = lazy(() => import('@/pages/auth/Register'));
@@ -31,6 +37,7 @@ export const router = createBrowserRouter([
       { index: true, element: <Navigate to="/auth/login" replace /> },
       { path: 'login', Component: LoginPage },
       { path: 'register', Component: RegisterPage },
+      { path: 'register/done', Component: RegisterResultPage },
     ],
   },
   {
@@ -46,10 +53,15 @@ export const router = createBrowserRouter([
       { path: 'components/feedback', Component: FeedbackPage },
       { path: 'form/basic', Component: BasicFormPage },
       { path: 'form/step', Component: StepFormPage },
+      { path: 'form/advanced', Component: AdvancedFormPage },
+      { path: 'list/basic', Component: BasicListPage },
       { path: 'list/card', Component: CardListPage },
       { path: 'list/search', Component: SearchListPage },
       { path: 'profile/basic', Component: ProfileBasicPage },
+      { path: 'profile/advanced', Component: ProfileAdvancedPage },
+      { path: 'account/center', Component: AccountCenterPage },
       { path: 'account/settings', Component: AccountSettingsPage },
+      { path: 'ai/assistant', Component: AssistantPage },
       { path: 'table', Component: OrdersPage },
       { path: '403', Component: ForbiddenPage },
       { path: '500', Component: ServerErrorPage },

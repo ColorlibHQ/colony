@@ -10,8 +10,9 @@
 
 ---
 
-> **Status: pre-alpha.** Phase 0 (foundation) is complete. Not yet usable as a template.
-> See [the build plan](#roadmap) for what lands when.
+> **Status: alpha.** Phase 1 is complete — all 24 Ant Design Pro routes exist,
+> plus a component gallery Pro does not have. Phase 2 (Theme Studio, command
+> palette, visual RBAC) is next. See [the roadmap](#roadmap).
 
 ## Why this exists
 
@@ -90,7 +91,7 @@ off `:root:lang(zh)`. Every screen is reviewed in four states: light/dark × EN/
 ## Roadmap
 
 - [x] **Phase 0** — foundation: tokens, theming, i18n, shell, CI
-- [ ] **Phase 1** — parity with all 24 Ant Design Pro routes *(in progress: 13 of 24)*
+- [x] **Phase 1** — parity with all 24 Ant Design Pro routes
 - [ ] **Phase 2** — Theme Studio, command palette, visual RBAC, 8 pages Pro lacks
 - [ ] **Phase 3** — bilingual docs site, Gitee mirror
 - [ ] **Phase 4** — 1.0
