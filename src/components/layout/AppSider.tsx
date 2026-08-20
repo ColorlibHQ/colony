@@ -6,6 +6,7 @@ import {
   FormOutlined,
   LockOutlined,
   ProfileOutlined,
+  ProjectOutlined,
   RobotOutlined,
   SettingOutlined,
   TableOutlined,
@@ -38,6 +39,7 @@ const ICONS: Record<string, ReactNode> = {
   robot: <RobotOutlined />,
   palette: <BgColorsOutlined />,
   lock: <LockOutlined />,
+  workspace: <ProjectOutlined />,
   warning: <WarningOutlined />,
   user: <UserOutlined />,
 };

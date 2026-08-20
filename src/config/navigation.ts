@@ -64,6 +64,16 @@ export const NAVIGATION: NavNode[] = [
   },
   { key: '/table', labelKey: 'nav.table', icon: 'table' },
   {
+    key: '/workspace',
+    labelKey: 'nav.workspace',
+    icon: 'workspace',
+    children: [
+      { key: '/workspace/kanban', labelKey: 'nav.kanban' },
+      { key: '/workspace/calendar', labelKey: 'nav.calendar' },
+      { key: '/workspace/inbox', labelKey: 'nav.inbox' },
+    ],
+  },
+  {
     key: '/profile',
     labelKey: 'nav.profile',
     icon: 'profile',

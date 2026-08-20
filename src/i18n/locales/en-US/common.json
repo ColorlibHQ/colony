@@ -60,7 +60,11 @@
     "forbidden": "403 Forbidden",
     "serverError": "500 Server error",
     "notFound": "404 Not found",
-    "access": "Access control"
+    "access": "Access control",
+    "workspace": "Workspace",
+    "kanban": "Kanban",
+    "calendar": "Calendar",
+    "inbox": "Inbox"
   },
   "theme": {
     "label": "Theme",
@@ -116,7 +120,10 @@
     "accountCenterDesc": "Your profile, published work and recent activity.",
     "assistantDesc": "A streaming chat surface with a pluggable provider.",
     "themeStudioDesc": "Edit Ant Design tokens live and export a theme file.",
-    "accessDesc": "Roles, permissions, and what each one can actually reach."
+    "accessDesc": "Roles, permissions, and what each one can actually reach.",
+    "kanbanDesc": "Drag cards between columns. Keyboard dragging works too.",
+    "calendarDesc": "Month and agenda views over a shared schedule.",
+    "inboxDesc": "A two-pane message list with reading and reply."
   },
   "range": {
     "7d": "7 days",
@@ -691,5 +698,84 @@
     "actAsTitle": "Act as {{role}}?",
     "actAsConfirm": "Switch role",
     "actAsDesc": "That role cannot open this page, so you will be redirected to 403. Clear the colony.auth entry in local storage to get back."
+  },
+  "taskStatus": {
+    "backlog": "Backlog",
+    "progress": "In progress",
+    "review": "In review",
+    "done": "Done"
+  },
+  "priority": {
+    "low": "Low",
+    "medium": "Medium",
+    "high": "High"
+  },
+  "kanban": {
+    "points": "{{count}} pts"
+  },
+  "task": {
+    "virtualise": "Virtualise the data table past 10k rows",
+    "cjkAudit": "Audit every screen in Chinese",
+    "themeExport": "Export a theme file from Theme Studio",
+    "rbacMatrix": "Visual permission matrix",
+    "bundleBudget": "Fail CI when the bundle grows",
+    "kanbanBoard": "Kanban board with keyboard dragging",
+    "docsSite": "Bilingual documentation site",
+    "giteeMirror": "Mirror the repository to Gitee",
+    "a11ySweep": "Accessibility sweep to WCAG 2.2 AA",
+    "calendarPage": "Calendar with month and agenda views"
+  },
+  "calendar": {
+    "month": "Month",
+    "agenda": "Agenda",
+    "newEvent": "New event",
+    "prev": "Previous month",
+    "next": "Next month",
+    "hours": "{{count}}h"
+  },
+  "event": {
+    "standup": "Daily standup",
+    "designReview": "Design review",
+    "release": "Release window",
+    "focusBlock": "Focus block",
+    "retro": "Sprint retrospective",
+    "onboarding": "New starter onboarding"
+  },
+  "eventKind": {
+    "meeting": "Meeting",
+    "release": "Release",
+    "review": "Review",
+    "focus": "Focus"
+  },
+  "inbox": {
+    "title": "Inbox",
+    "compose": "Compose",
+    "search": "Search messages",
+    "star": "Star",
+    "reply": "Send reply",
+    "replyPlaceholder": "Write a reply…",
+    "nothingSelected": "Select a message to read it"
+  },
+  "mail": {
+    "reviewRequest": {
+      "subject": "Review needed: data table virtualisation",
+      "body": "The virtualised table holds at 100k rows, but the column resize handle drifts once you scroll past about row 4,000. I think the sticky header and the row container are measuring different widths. Could you take a look before Thursday?"
+    },
+    "cjkFindings": {
+      "subject": "CJK typography audit — findings",
+      "body": "Went through every screen in Chinese. Three issues: the stat cards clip at 15px, the breadcrumb wraps on narrow viewports, and the empty states read like machine translation. Fixes are small; the empty-state copy needs rewriting rather than adjusting."
+    },
+    "bundleReport": {
+      "subject": "Bundle report: we shipped the mock server",
+      "body": "MSW was in the production build — 152 kB of it, plus its dependency tree. Splitting the demo build from the app build took the heaviest route from 1,179 kB to 509 kB. Budget is now enforced in CI."
+    },
+    "themeTokens": {
+      "subject": "Theme tokens: contrast on the default blue",
+      "body": "Ant Design's default primary is 4.10:1 on white. Fine for large text and UI boundaries, below AA for body copy. Theme Studio now shows the ratio next to the picker so nobody ships this by accident."
+    },
+    "demoFeedback": {
+      "subject": "Demo feedback from the weekly call",
+      "body": "Two people asked for the command palette by name before we showed it, which is a good sign. The one complaint: the sidebar hides pages the role cannot reach, and someone read that as a bug rather than a permission."
+    }
   }
 }

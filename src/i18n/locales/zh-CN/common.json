@@ -60,7 +60,11 @@
     "forbidden": "403 无权限",
     "serverError": "500 服务器错误",
     "notFound": "404 页面不存在",
-    "access": "权限管理"
+    "access": "权限管理",
+    "workspace": "工作区",
+    "kanban": "看板",
+    "calendar": "日历",
+    "inbox": "收件箱"
   },
   "theme": {
     "label": "主题",
@@ -116,7 +120,10 @@
     "accountCenterDesc": "你的资料、已发布内容与最近动态。",
     "assistantDesc": "支持流式输出的对话界面，接口可替换。",
     "themeStudioDesc": "实时调整 Ant Design Design Token，并导出主题文件。",
-    "accessDesc": "角色、权限，以及每个角色实际能访问的页面。"
+    "accessDesc": "角色、权限，以及每个角色实际能访问的页面。",
+    "kanbanDesc": "拖拽卡片在列之间移动，同时支持键盘拖拽。",
+    "calendarDesc": "以月视图与日程视图查看共享日程。",
+    "inboxDesc": "双栏消息列表，支持阅读与回复。"
   },
   "range": {
     "7d": "近 7 天",
@@ -691,5 +698,84 @@
     "actAsTitle": "切换为 {{role}} 身份？",
     "actAsConfirm": "确认切换",
     "actAsDesc": "该角色无权访问本页面，切换后会跳转至 403。如需恢复，请清除本地存储中的 colony.auth。"
+  },
+  "taskStatus": {
+    "backlog": "待办",
+    "progress": "进行中",
+    "review": "待评审",
+    "done": "已完成"
+  },
+  "priority": {
+    "low": "低",
+    "medium": "中",
+    "high": "高"
+  },
+  "kanban": {
+    "points": "{{count}} 点"
+  },
+  "task": {
+    "virtualise": "数据表格支持 1 万行以上虚拟滚动",
+    "cjkAudit": "逐页走查中文显示效果",
+    "themeExport": "从主题工作室导出主题文件",
+    "rbacMatrix": "可视化权限矩阵",
+    "bundleBudget": "包体积超标时 CI 失败",
+    "kanbanBoard": "支持键盘拖拽的看板",
+    "docsSite": "双语文档站点",
+    "giteeMirror": "将仓库镜像至 Gitee",
+    "a11ySweep": "无障碍走查至 WCAG 2.2 AA",
+    "calendarPage": "支持月视图与日程视图的日历"
+  },
+  "calendar": {
+    "month": "月",
+    "agenda": "日程",
+    "newEvent": "新建日程",
+    "prev": "上个月",
+    "next": "下个月",
+    "hours": "{{count}} 小时"
+  },
+  "event": {
+    "standup": "每日站会",
+    "designReview": "设计评审",
+    "release": "发版窗口",
+    "focusBlock": "专注时段",
+    "retro": "迭代复盘",
+    "onboarding": "新同事入职"
+  },
+  "eventKind": {
+    "meeting": "会议",
+    "release": "发版",
+    "review": "评审",
+    "focus": "专注"
+  },
+  "inbox": {
+    "title": "收件箱",
+    "compose": "写邮件",
+    "search": "搜索邮件",
+    "star": "标记星标",
+    "reply": "发送回复",
+    "replyPlaceholder": "输入回复内容…",
+    "nothingSelected": "请选择一封邮件查看"
+  },
+  "mail": {
+    "reviewRequest": {
+      "subject": "需要评审：数据表格虚拟滚动",
+      "body": "虚拟表格在 10 万行下表现稳定，但滚动到约第 4000 行之后，列宽拖拽手柄会出现偏移。我怀疑是吸顶表头和行容器测量到的宽度不一致。周四之前方便看一下吗？"
+    },
+    "cjkFindings": {
+      "subject": "中文排版走查结果",
+      "body": "已逐页检查中文显示。发现三个问题：指标卡在 15px 下文字被裁切、面包屑在窄屏换行、空状态文案读起来像机器翻译。前两个改动很小；空状态文案需要重写而不是微调。"
+    },
+    "bundleReport": {
+      "subject": "体积报告：我们把 Mock 服务打进了生产包",
+      "body": "MSW 出现在了生产构建里 —— 光它本身就有 152 kB，还带着整棵依赖树。把演示构建和应用构建拆开后，最重的页面从 1179 kB 降到了 509 kB。体积预算现已在 CI 中强制执行。"
+    },
+    "themeTokens": {
+      "subject": "主题 Token：默认蓝的对比度",
+      "body": "Ant Design 默认主色在白底上的对比度是 4.10:1。用于大号文字和界面分隔线没问题，但作为正文颜色达不到 AA。主题工作室现在会在取色器旁显示该数值，避免有人无意中发布这样的配色。"
+    },
+    "demoFeedback": {
+      "subject": "周会演示反馈",
+      "body": "有两位同事在我们演示之前就主动问起了命令面板，这是个好信号。唯一的意见是：侧边栏会隐藏当前角色无权访问的页面，有人把这理解成了缺陷而不是权限控制。"
+    }
   }
 }

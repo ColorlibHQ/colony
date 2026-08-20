@@ -25,6 +25,9 @@ const AccountSettingsPage = lazy(() => import('@/pages/account/Settings'));
 const AssistantPage = lazy(() => import('@/pages/ai/Assistant'));
 const ThemeStudioPage = lazy(() => import('@/pages/theme/ThemeStudio'));
 const AccessMatrixPage = lazy(() => import('@/pages/access/AccessMatrix'));
+const KanbanPage = lazy(() => import('@/pages/workspace/Kanban'));
+const CalendarPage = lazy(() => import('@/pages/workspace/Calendar'));
+const InboxPage = lazy(() => import('@/pages/workspace/Inbox'));
 const LoginPage = lazy(() => import('@/pages/auth/Login'));
 const RegisterPage = lazy(() => import('@/pages/auth/Register'));
 const RegisterResultPage = lazy(() => import('@/pages/auth/RegisterResult'));
@@ -78,6 +81,9 @@ export const router = createBrowserRouter([
           { path: 'ai/assistant', Component: AssistantPage },
           { path: 'theme-studio', Component: ThemeStudioPage },
           { path: 'access', Component: AccessMatrixPage },
+          { path: 'workspace/kanban', Component: KanbanPage },
+          { path: 'workspace/calendar', Component: CalendarPage },
+          { path: 'workspace/inbox', Component: InboxPage },
         ],
       },
 
